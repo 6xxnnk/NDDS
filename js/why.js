@@ -1,6 +1,3 @@
-/* ==============================
-   Why Swiper
-============================== */
 const whySwiper = new Swiper(".whySwiper", {
   slidesPerView: 1.3,
   spaceBetween: 34,
