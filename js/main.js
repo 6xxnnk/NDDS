@@ -1,10 +1,13 @@
-const aboutSection = document.querySelector(".about");
+/* ==============================
+   Scroll Active Animation
+============================== */
+const activeSections = document.querySelectorAll(".about, .why");
 
-const aboutObserver = new IntersectionObserver(
+const sectionObserver = new IntersectionObserver(
   function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        aboutSection.classList.add("is-active");
+        entry.target.classList.add("is-active");
       }
     });
   },
@@ -13,6 +16,6 @@ const aboutObserver = new IntersectionObserver(
   }
 );
 
-if (aboutSection) {
-  aboutObserver.observe(aboutSection);
-}
+activeSections.forEach(function (section) {
+  sectionObserver.observe(section);
+});

@@ -8,6 +8,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="./css/reset.css" />
   <link rel="stylesheet" href="./css/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <!-- Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -114,60 +115,252 @@
   </div>
 </section>
 
-      <!-- Why NDDS -->
-      <section id="why" class="why section">
-        <div class="section__inner why__inner">
+<!-- Why Section -->
+<section id="why" class="why">
+  <div class="why__inner">
 
-          <div class="why__title-area">
-            <span class="section__bar"></span>
+    <div class="why__title-area">
+      <span class="why__bar scroll-line"></span>
 
-            <h2 class="section__title">
-              이런 아파트,<br />
-              <strong>NDDS가</strong><br />
-              꼭 필요합니다.
-            </h2>
+      <h2 class="why__title">
+        이런 아파트,<br />
+        <strong>NDDS</strong>가<br />
+        꼭 필요합니다!
+      </h2>
 
-            <div class="why__control">
-              <button type="button" class="why__arrow why__arrow--prev" aria-label="이전">
-                ‹
-              </button>
-              <span class="why__count">01 / 06</span>
-              <button type="button" class="why__arrow why__arrow--next" aria-label="다음">
-                ›
-              </button>
-            </div>
+      <div class="why__control">
+        <button type="button" class="why__arrow why__arrow--prev" aria-label="이전 슬라이드">
+          ‹
+        </button>
+
+        <div class="why__pagination">
+          <span class="why__current">01</span>
+          <span class="why__slash">/</span>
+          <span class="why__total">06</span>
+        </div>
+
+        <button type="button" class="why__arrow why__arrow--next" aria-label="다음 슬라이드">
+          ›
+        </button>
+      </div>
+    </div>
+
+    <div class="why__slide-area">
+      <div class="swiper whySwiper">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <article class="why__card">
+               <div class="why__card-text">
+      <span class="why__num">01</span>
+
+      <h3>세대수가 적어 운영 관리에 어려움을 겪는 단지</h3>
+
+      <div class="why__info">
+        <span class="why__tag why__tag--green">적합</span>
+        <p>400~700세대의 세대수가 적은 아파트</p>
+      </div>
+
+      <p class="why__body">
+        규모가 작아 운영비 부담과 낮은 이용률로<br />
+        커뮤니티가 방치된 아파트
+      </p>
+
+      <div class="why__info">
+        <span class="why__tag why__tag--blue">전략</span>
+      </div>
+
+      <p class="why__strategy">
+        -철저한 수지 분석을 통한 적자를 흑자로 전환<br />
+        -스마트 앱 기반 관리 시스템으로 인건비 부담 낮춤<br />
+        -서비스의 질은 높이고 운영비는 줄이는 시스템
+      </p>
+    </div>
+
+    <div class="why__card-img">
+      <img src="./img/why_apartment_01.jpg" alt="아파트 이미지" />
+    </div>
+            </article>
+          </div>
+ 
+          <div class="swiper-slide">
+            <article class="why__card">
+                             <div class="why__card-text">
+      <span class="why__num">02</span>
+
+      <h3>카페 시설 운영 및 흑자 전환이 절실한 단지</h3>
+
+      <div class="why__info"> 
+        <span class="why__tag why__tag--green">적합</span>
+        <p>카페 시설의 운영이 어려운 아파트</p>
+      </div>
+
+      <p class="why__body">
+        단지 내 카페 시설이 있음에도 적자 운영이 걱정되어<br />
+        오픈을 못하거나 지속적인 적자를 유지하는 아파트
+      </p>
+
+      <div class="why__info">
+        <span class="why__tag why__tag--blue">전략</span>
+      </div>
+
+      <p class="why__strategy">
+        카페를 아파트 커뮤니티 소통공간으로 활용 <br>
+        단순한 서비스 공간이 아닌 수익형 문화 공간으로 변경 <br>
+        철저하게 계산된 컨설팅을 통한 흑자 전환 시스템 구축
+      </p>
+    </div>
+
+    <div class="why__card-img">
+      <img src="./img/why_apartment_01.jpg" alt="아파트 이미지" />
+    </div>
+            </article>
           </div>
 
-          <div class="why__card-wrap">
+          <div class="swiper-slide">
             <article class="why__card">
-              <div class="why__card-text">
-                <span class="why__num">01</span>
+                             <div class="why__card-text">
+      <span class="why__num">03</span>
 
-                <h3>
-                  세대수가 적어 운영 관리에 어려움을 겪는 단지
-                </h3>
+      <h3>시설을 갖추었으나 제대로 활용 못하는 단지</h3>
 
-                <ul class="why__list">
-                  <li>
-                    <strong>문제점</strong>
-                    <p>입주민 참여 부족과 운영 콘텐츠 부족으로 커뮤니티 활성화가 어려운 경우</p>
-                  </li>
+      <div class="why__info">
+        <span class="why__tag why__tag--green">적합</span>
+        <p>시설 운영 시스템이 갖춰지지 않은 아파트</p>
+      </div>
 
-                  <li>
-                    <strong>해결</strong>
-                    <p>단지 특성에 맞는 커뮤니티 프로그램과 운영 시스템을 제안합니다.</p>
-                  </li>
-                </ul>
-              </div>
+      <p class="why__body">
+        사우나, 로비 라운지, 골프장 등 좋은 시설이 <br>
+        관리비 폭탄이 무서워 닫혀 있고 방치되어 있는 아파트
+      </p>
 
-              <div class="why__card-img">
-                <img src="./img/why_apartment.jpg" alt="아파트 이미지" />
-              </div>
+      <div class="why__info">
+        <span class="why__tag why__tag--blue">전략</span>
+      </div>
+
+      <p class="why__strategy">
+              -유휴 공간과 인력 재배치 진행 <br>
+              -풍부한 운영 경험을 바탕으로 한 시스템 구축 <br>
+              -추가비용 없이 시설 정상 운영 방안 마련
+      </p>
+    </div>
+
+    <div class="why__card-img">
+      <img src="./img/why_apartment_01.jpg" alt="아파트 이미지" />
+    </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="why__card">
+                             <div class="why__card-text">
+      <span class="why__num">04</span>
+
+      <h3>고비용, 저효율 구조로 미래가 걱정되는 단지</h3>
+
+      <div class="why__info">
+        <span class="why__tag why__tag--green">적합</span>
+        <p>시설의 노후화를 대비해야 되는 아파트</p>
+      </div>
+
+      <p class="why__body">
+        현재 운영은 되고 있으나 5~10년 뒤 찾아올 <br>
+        시설 노후화를 대비 못한 수익이 없는 아파트
+      </p>
+
+      <div class="why__info">
+        <span class="why__tag why__tag--blue">전략</span>
+      </div>
+
+      <p class="why__strategy">
+        -지속 가능한 효율적인 재무 설계 <br>
+        -노후화 대비 대대적 보수를 위한 자본 확보 <br>
+        -프리미엄 시설의 지속적인 운영과 수익 설계
+      </p>
+    </div>
+
+    <div class="why__card-img">
+      <img src="./img/why_apartment_01.jpg" alt="아파트 이미지" />
+    </div>
+            </article>
+          </div>
+
+          <div class="swiper-slide">
+            <article class="why__card">
+                            <div class="why__card-text">
+      <span class="why__num">05</span>
+
+      <h3>단조로운 커뮤니티에 변화가 필요한 단지</h3>
+
+      <div class="why__info">
+        <span class="why__tag why__tag--green">적합</span>
+        <p>헬스장 등 소규모 시설만 있는 아파트</p>
+      </div>
+
+      <p class="why__body">
+        헬스장, 독서실 등 기본 시설만 있는 <br>
+        작은 규모의 커뮤니티를 보유하고 있는 아파트
+      </p>
+
+      <div class="why__info">
+        <span class="why__tag why__tag--blue">전략</span>
+      </div>
+
+      <p class="why__strategy">
+        -새로운 활력을 불어넣을 수 있는 모델 구축<br />
+        -수익을 전문인력 고용에 사용하여 프로그램 개선<br />
+        -건전한 재정과 만족도를 높이는 선순환 과정 진행
+      </p>
+    </div>
+
+    <div class="why__card-img">
+      <img src="./img/why_apartment_01.jpg" alt="아파트 이미지" />
+    </div>
+            </article>
+          </div>
+ 
+          <div class="swiper-slide">
+            <article class="why__card">
+                             <div class="why__card-text">
+      <span class="why__num">06</span>
+
+      <h3>인테리어 및 공간 컨설팅이 시급한 신축 단지
+</h3>
+
+      <div class="why__info">
+        <span class="why__tag why__tag--green">적합</span>
+        <p>공간 활용도를 고려하지 않은 아파트</p>
+      </div>
+
+      <p class="why__body">
+        공간의 사용 용도나 규모, 분리를 고려하지 않고 <br>
+        인테리어를 진행한 커뮤니티나 기존 활용 방안을 <br>
+        지키지 못해 방치되어 있는 아파트
+      </p>
+
+      <div class="why__info">
+        <span class="why__tag why__tag--blue">전략</span>
+      </div>
+
+      <p class="why__strategy">
+        -공간 분리, 공간 컨설팅 진행 <br>
+        -사용용도에 맞는 인테리어, 기구 설비 <br>
+        -입주민이 만족할 수 있는 공간으로 정상 운영 진행
+      </p>
+    </div>
+
+    <div class="why__card-img">
+      <img src="./img/why_apartment_01.jpg" alt="아파트 이미지" />
+    </div>
             </article>
           </div>
 
         </div>
-      </section>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       <!-- Consulting -->
       <section id="consulting" class="consulting section section--dark">
@@ -353,5 +546,7 @@
 
   </div>
   <script src="./js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="./js/why.js"></script>
 </body>
 </html>
