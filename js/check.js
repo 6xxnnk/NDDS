@@ -1,7 +1,6 @@
-/* ==============================
-   Scroll Active Animation
-============================== */
-const activeSections = document.querySelectorAll(".about, .why, .consulting, .checklist, .service");
+const activeSections = document.querySelectorAll(
+  ".about, .why, .consulting, .service, .checklist"
+);
 
 const sectionObserver = new IntersectionObserver(
   function (entries) {
