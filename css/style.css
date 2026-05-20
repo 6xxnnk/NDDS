@@ -1860,12 +1860,12 @@ img {
     gap: 9px;
     margin-bottom: 14px;
   }
-
+/* 
   .why__info p,
   .why__body,
   .why__strategy {
-    font-size: 14px;
-  }
+    font-size: 15px;
+  } */
 
   .why__card-img {
     height: 210px;
