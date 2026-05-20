@@ -175,9 +175,9 @@ img {
   width: 24px;
   height: 2px;
   margin: 6px auto;
-  background: #111;
+  background: #fff;
   border-radius: 999px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s ease;
 }
 
 /* 햄버거 버튼 active */
@@ -2232,18 +2232,6 @@ img {
   color: var(--main-orange);
   font-size: 15px;
   line-height: 1;
-  font-weight: 800;
-  text-align: center;
-}
-.consulting__text li span {
-  flex: 0 0 auto;
-  min-width: 94px;
-  padding: 5px 10px 5px;
-  border: 1px solid var(--main-orange);
-  border-radius: 999px;
-  color: var(--main-orange);
-  font-size: 15px;
-  line-height: 1;
   font-weight: 600;
   text-align: center;
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
@@ -2640,7 +2628,7 @@ img {
     width: 64px;
     margin-left: auto;
     margin-right: auto;
-  }.
+  }
 
   .service__head .section__title {
     font-size: 34px;
@@ -3801,4 +3789,106 @@ img {
   .footer__info p {
     font-size: 12px;
   }
+}
+
+
+/* ==============================
+   Prevent Drag / Text Selection
+============================== */
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  -webkit-user-drag: none;
+  user-select: none;
+}
+
+.service__card::after,
+.why__card::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 121, 0, 0.45),
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 121, 0, 0)
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.service__card:hover::after,
+.why__card:hover::after {
+  opacity: 0.45;
+}
+
+@media screen and (max-width: 768px) {
+  .gnb__item a {
+    position: relative;
+    border-radius: 14px;
+    padding: 18px 16px;
+    transition: color 0.25s ease, background 0.25s ease, transform 0.25s ease;
+  }
+
+  .gnb__item a:hover,
+  .gnb__item a:active {
+    color: var(--main-orange);
+    background: rgba(255, 121, 0, 0.08);
+    transform: translateX(4px);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--main-orange),
+    #ffb067
+  );
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--main-orange);
+}
+
+::selection {
+  background: rgba(255, 121, 0, 0.28);
+  color: #fff;
 }
