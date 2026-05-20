@@ -21,25 +21,31 @@
 
     <!-- Header -->
     <header id="header" class="header">
-      <div class="header__inner">
-        <h1 class="header__logo">
-          <a href="/">
-            <span>NDDS</span>
-          </a>
-        </h1>
+  <div class="header__inner">
+    <h1 class="header__logo">
+      <a href="/">
+        <span>NDDS</span>
+      </a>
+    </h1>
 
-        <nav class="gnb">
-          <ul class="gnb__list">
-            <li class="gnb__item"><a href="#about">회사소개</a></li>
-            <li class="gnb__item"><a href="#why">커뮤니티 위탁</a></li>
-            <li class="gnb__item"><a href="#consulting">커뮤니티 컨설팅</a></li>
-            <li class="gnb__item"><a href="#service">아파트 행사</a></li>
-            <li class="gnb__item"><a href="#contact">커뮤니티</a></li>
-          </ul>
-        </nav>
-      </div>
-    </header>
+    <nav class="gnb">
+      <ul class="gnb__list">
+        <li class="gnb__item"><a href="#about">회사소개</a></li>
+        <li class="gnb__item"><a href="#why">커뮤니티 위탁</a></li>
+        <li class="gnb__item"><a href="#consulting">커뮤니티 컨설팅</a></li>
+        <li class="gnb__item"><a href="#service">아파트 행사</a></li>
+        <li class="gnb__item"><a href="#contact">커뮤니티</a></li>
+      </ul>
+    </nav>
 
+    <button type="button" class="menu-btn" aria-label="모바일 메뉴 열기">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+<div class="menu-dim"></div>
     <!-- Main -->
     <main id="main">
 
@@ -123,10 +129,10 @@
       <span class="why__bar scroll-line"></span>
 
       <h2 class="why__title">
-        이런 아파트,<br />
-        <strong>NDDS</strong>가<br />
-        꼭 필요합니다!
-      </h2>
+  이런 아파트,<br />
+  <strong>NDDS</strong>가<span class="pc-br"><br /></span>
+  꼭 필요합니다!
+</h2>
 
       <div class="why__control">
         <button type="button" class="why__arrow why__arrow--prev" aria-label="이전 슬라이드">
@@ -391,7 +397,7 @@
 
           <ul>
             <li><span>소수 정예 교육</span> 매년 10명의 전문가를 선발, 직접 교육</li>
-            <li><span>현장 중심 매뉴얼</span> 단순 이론이 아닌 실제 현장에서의 실전 교육과정 진행</li>
+            <li><span>현장 중심 메뉴얼</span> 단순 이론이 아닌 실제 현장에서의 실전 교육과정 진행</li>
             <li><span>책임 운영 보장</span> 전문과정을 이수한 우수 인력으로 전문성 있는 운영을 보장</li>
           </ul>
         </div>
@@ -506,10 +512,10 @@
           <div class="contact__text">
             <span class="section__bar"></span>
 
-            <h2 class="section__title">
-              아파트 커뮤니티의 새로운 기준,<br />
-              NDDS와 함께하세요
-            </h2>
+           <h2 class="section__title">
+  아파트 커뮤니티의 새로운 기준,<br />
+  <strong>NDDS</strong>와 함께하세요
+</h2>
 
             <p>
               커뮤니티 운영, 컨설팅, 문화 행사 기획까지<br />
@@ -517,7 +523,7 @@
             </p>
           </div>
 
-          <a href="mailto:contact@ndds.co.kr" class="contact__btn">
+          <a href="https://blog.naver.com/dltjssh16" class="contact__btn">
             문의하기
           </a>
         </div>
@@ -531,12 +537,12 @@
     <div class="footer__info">
       <p>
         회사명&nbsp;&nbsp;|&nbsp;&nbsp;주식회사 앤디디스(NDDS)
-        <span>대표이사 : 이선노</span>
+        <span>대표이사 &nbsp;&nbsp;|&nbsp;&nbsp; 이선노</span>
       </p>
 
       <p>
-        사업자 번호 : 135-87-03527
-        <span>파트너사 : 트러스테이, 숨카</span
+        사업자 번호 &nbsp;&nbsp;|&nbsp;&nbsp; 135-87-03527
+        <span>파트너사 &nbsp;&nbsp;|&nbsp;&nbsp; 트러스테이, 숨카</span
       </p>
     </div>
 
@@ -549,7 +555,9 @@
 
   </div>
   <script src="./js/main.js"></script>
+  <script src="./js/menu.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="./js/why.js"></script>
+  
 </body>
 </html>
