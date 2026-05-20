@@ -1487,7 +1487,7 @@ img {
   border-radius: 999px;
   font-size: 15px;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 500;
   color: #fff;
   letter-spacing: -0.03em;
 }
@@ -1500,11 +1500,12 @@ img {
   transform: translateY(1px);
 }
 .why__tag--green {
-  background: #276836;
+  background: #388349;
 }
 
 .why__tag--blue {
-  background: #1e4696;
+  background: #2c62cc;
+  
 }
 
 .why__info p {
@@ -2187,9 +2188,8 @@ img {
   position: relative;
   margin: 0 0 20px;
   padding-bottom: 14px;
-  font-size: 24px;
+  font-size: 26px;
   line-height: 1.35;
-  font-weight: 800;
   letter-spacing: -0.05em;
   color: #fff;
 }
@@ -2223,9 +2223,8 @@ img {
   align-items: center;
   gap: 10px;
   margin-top: 10px;
-  font-size: 14px;
   line-height: 1.6;
-  font-weight: 500;
+  font-weight: 300;
   letter-spacing: -0.04em;
   color: rgba(255, 255, 255, 0.72);
 }
@@ -2251,7 +2250,7 @@ img {
   color: var(--main-orange);
   font-size: 15px;
   line-height: 1;
-  font-weight: 800;
+  font-weight: 600;
   text-align: center;
   transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
 }
@@ -2852,18 +2851,15 @@ img {
     font-size: 23px;
   }
 
-  .consulting__text p {
-    font-size: 14.5px;
-  }
 
   .consulting__text li {
     align-items: flex-start;
-    font-size: 13.5px;
+    font-size: 15px;
   }
 
   .consulting__text li span {
     min-width: 86px;
-    font-size: 11.5px;
+    font-size: 15px;
   }
 }
 
@@ -2903,14 +2899,10 @@ img {
     font-size: 21px;
   }
 
-  .consulting__text p {
-    font-size: 14px;
-  }
 
   .consulting__text li {
     flex-direction: column;
     gap: 7px;
-    font-size: 13px;
   }
 
   .consulting__text li span {
