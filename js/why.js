@@ -1,8 +1,17 @@
 const whySwiper = new Swiper(".whySwiper", {
-  slidesPerView: 1.3,
-  spaceBetween: 34,
-  speed: 750,
-  loop: false,
+  slidesPerView: 1,
+  spaceBetween: 20,
+  speed: 700,
+  loop: true,
+
+  allowTouchMove: true,
+  simulateTouch: true,
+  grabCursor: true,
+  touchRatio: 1,
+  touchAngle: 45,
+
+  observer: true,
+  observeParents: true,
 
   navigation: {
     nextEl: ".why__arrow--next",
@@ -19,21 +28,9 @@ const whySwiper = new Swiper(".whySwiper", {
   },
 
   breakpoints: {
-    0: {
-      slidesPerView: 1,
-      spaceBetween: 20,
-    },
-    768: {
-      slidesPerView: 1.08,
-      spaceBetween: 24,
-    },
-    1024: {
-      slidesPerView: 1.18,
-      spaceBetween: 28,
-    },
-    1280: {
-      slidesPerView: 1.3,
-      spaceBetween: 34,
+    769: {
+      slidesPerView: "auto",
+      spaceBetween: 36,
     },
   },
 });
@@ -44,6 +41,9 @@ function updateWhyPagination(swiper) {
 
   if (!current || !total) return;
 
-  current.textContent = String(swiper.realIndex + 1).padStart(2, "0");
-  total.textContent = String(swiper.slides.length).padStart(2, "0");
+  const realIndex = swiper.realIndex + 1;
+  const totalSlides = swiper.slides.length - swiper.loopedSlides * 2;
+
+  current.textContent = String(realIndex).padStart(2, "0");
+  total.textContent = String(totalSlides).padStart(2, "0");
 }
