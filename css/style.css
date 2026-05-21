@@ -1526,7 +1526,29 @@ img {
   line-height: 1.65;
   font-weight: 400;
   letter-spacing: -0.04em;
+  color: #111;  
+  padding: 0;
+  list-style: none;
+}
+
+
+.why__strategy li {
+  position: relative;
+  padding-left: 22px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: -0.04em;
   color: #111;
+}
+
+.why__strategy li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--main-orange);
+  font-weight: 900;
 }
 
 .why__card-img {
@@ -1565,7 +1587,10 @@ img {
   100% {
     opacity: 1;
   }
-}/* ==============================
+}
+
+
+/* ==============================
    Why Responsive
 ============================== */
 
