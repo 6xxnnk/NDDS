@@ -1,3 +1,5 @@
+const whyTotalCount = document.querySelectorAll(".whySwiper .swiper-slide").length;
+
 const whySwiper = new Swiper(".whySwiper", {
   slidesPerView: 1,
   spaceBetween: 20,
@@ -42,8 +44,7 @@ function updateWhyPagination(swiper) {
   if (!current || !total) return;
 
   const realIndex = swiper.realIndex + 1;
-  const totalSlides = swiper.slides.length - swiper.loopedSlides * 2;
 
   current.textContent = String(realIndex).padStart(2, "0");
-  total.textContent = String(totalSlides).padStart(2, "0");
+  total.textContent = String(whyTotalCount).padStart(2, "0");
 }
