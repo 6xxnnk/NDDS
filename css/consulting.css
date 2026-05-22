@@ -507,8 +507,8 @@
 
 .con-process__card {
   position: relative;
-  height: 176px;
-  padding: 20px 14px;
+  height: 196px;
+  padding: 20px 14px 34px;
   overflow: hidden;
   border: 1px solid rgba(255, 121, 0, 0.14);
   border-radius: 10px;
@@ -543,13 +543,25 @@
 }
 
 .con-process__icon {
-  width: 42px;
-  height: 42px;
+  width: 54px;
+  height: 54px;
   margin: 0 auto 14px;
-  border-radius: 8px;
-  background: #d9d9d9;
+  padding: 11px;
+  border-radius: 10px;
+  background: #f0efef;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.con-process__icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
 .con-process__card h4 {
   margin: 0 0 6px;
   color: var(--main-orange);
@@ -559,7 +571,7 @@
 }
 
 .con-process__card p {
-  margin: 0;
+  margin: 0 0 14px;
   font-size: 12px;
   line-height: 1.45;
   font-weight: 500;
