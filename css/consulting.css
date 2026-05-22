@@ -247,7 +247,60 @@
   letter-spacing: -0.04em;
   color: #333;
 }
+.con-intro__text .con-intro__thought {
+  position: relative;
+  display: inline-block;
+  margin: 0 0 20px;
+  padding: 0 22px;
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: -0.04em;
+  color: #9a9a9a;
+  z-index: 1;
+}
 
+.con-intro__text .con-intro__thought::before {
+  content: "“";
+  position: absolute;
+  left: 0;
+  top: -5px;
+  color: var(--main-orange);
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.con-intro__text .con-intro__thought::after {
+  content: "”";
+  position: absolute;
+  right: 0;
+  top: -5px;
+  color: var(--main-orange);
+  font-size: 28px;
+  line-height: 1;
+  font-weight: 900;
+  font-style: normal;
+}
+
+/* 연한 오렌지 밑선 */
+.con-intro__text .con-intro__thought span {
+  position: relative;
+  z-index: 1;
+}
+
+.con-intro__text .con-intro__thought span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 2px;
+  z-index: -1;
+  width: 100%;
+  height: 7px;
+  background: rgba(255, 121, 0, 0.08);
+}
 /* ==============================
    Insight
 ============================== */
@@ -513,23 +566,44 @@
   letter-spacing: -0.04em;
   color: #777;
 }
-
 /* ==============================
    Strength
 ============================== */
 .con-strength {
-  padding: 100px 0 120px;
+  position: relative;
+  padding: 110px 0 130px;
   background: #fff;
+  overflow: hidden;
+}
+
+.con-strength::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 120px;
+  width: 760px;
+  height: 520px;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse,
+    rgba(255, 121, 0, 0.08) 0%,
+    rgba(255, 121, 0, 0.03) 42%,
+    rgba(255, 121, 0, 0) 72%
+  );
+  filter: blur(18px);
+  pointer-events: none;
 }
 
 .con-strength__inner {
+  position: relative;
+  z-index: 2;
   width: 1280px;
   margin: 0 auto;
 }
 
 .con-strength h3 {
-  margin: 0 0 76px;
-  font-size: 28px;
+  margin: 0 0 86px;
+  font-size: 30px;
   line-height: 1.4;
   font-weight: 900;
   letter-spacing: -0.06em;
@@ -541,18 +615,20 @@
   color: var(--main-orange);
 }
 
+/* 전체 다이어그램 */
 .con-strength__diagram {
   position: relative;
-  width: 780px;
-  height: 520px;
+  width: 1040px;
+  height: 560px;
   margin: 0 auto;
 }
 
+/* 중심 주황 원 */
 .con-strength__center {
   position: absolute;
   left: 50%;
   top: 50%;
-  z-index: 3;
+  z-index: 5;
   width: 190px;
   height: 190px;
   transform: translate(-50%, -50%);
@@ -569,37 +645,41 @@
   justify-content: center;
   text-align: center;
 
-  box-shadow: 0 28px 60px rgba(255, 121, 0, 0.25);
+  box-shadow: 
+    0 28px 60px rgba(255, 121, 0, 0.25),
+    0 0 0 18px rgba(255, 121, 0, 0.08);
 }
 
+/* 원형 궤도 */
 .con-strength__diagram::before,
 .con-strength__diagram::after {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
-  border: 1px solid rgba(0, 0, 0, 0.16);
   border-radius: 50%;
   transform: translate(-50%, -50%);
+  pointer-events: none;
 }
 
 .con-strength__diagram::before {
-  width: 300px;
-  height: 300px;
+  width: 310px;
+  height: 310px;
+  border: 1px solid rgba(0, 0, 0, 0.14);
 }
 
 .con-strength__diagram::after {
-  width: 390px;
-  height: 390px;
-  border-style: dashed;
-  border-color: rgba(255, 121, 0, 0.35);
+  width: 420px;
+  height: 420px;
+  border: 1px dashed rgba(255, 121, 0, 0.38);
 }
 
+/* 검정 원 공통 */
 .con-strength__circle {
   position: absolute;
-  z-index: 4;
-  width: 92px;
-  height: 92px;
+  z-index: 6;
+  width: 94px;
+  height: 94px;
   border-radius: 50%;
   background: #111;
   color: #fff;
@@ -613,44 +693,49 @@
   justify-content: center;
   text-align: center;
 
-  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.16);
+  box-shadow:
+    0 18px 36px rgba(0, 0, 0, 0.18),
+    0 0 0 8px rgba(255, 255, 255, 0.9);
 }
 
+/* 검정 원 위치 - 박스와 겹치지 않게 안쪽 궤도에 배치 */
 .con-strength__circle--01 {
-  left: 205px;
-  top: 128px;
+  left: 300px;
+  top: 178px;
 }
 
 .con-strength__circle--02 {
-  right: 190px;
-  top: 88px;
+  right: 300px;
+  top: 138px;
 }
 
 .con-strength__circle--03 {
-  right: 160px;
-  bottom: 116px;
+  right: 286px;
+  bottom: 142px;
 }
 
 .con-strength__circle--04 {
-  left: 190px;
-  bottom: 118px;
+  left: 286px;
+  bottom: 142px;
 }
 
+/* 설명 박스 공통 */
 .con-strength__box {
   position: absolute;
-  z-index: 4;
-  width: 210px;
-  padding: 20px 22px;
-  border: 1px solid rgba(255, 121, 0, 0.5);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.055);
+  z-index: 3;
+  width: 240px;
+  min-height: 124px;
+  padding: 24px 26px;
+  border: 1px solid rgba(255, 121, 0, 0.55);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.06);
 }
 
 .con-strength__box h4 {
-  margin: 0 0 10px;
+  margin: 0 0 12px;
   color: var(--main-orange);
-  font-size: 15px;
+  font-size: 16px;
   line-height: 1.35;
   font-weight: 900;
   letter-spacing: -0.04em;
@@ -658,31 +743,205 @@
 
 .con-strength__box p {
   margin: 0;
-  font-size: 12px;
-  line-height: 1.6;
+  font-size: 13px;
+  line-height: 1.65;
   font-weight: 500;
   letter-spacing: -0.04em;
   color: #333;
 }
 
+/* 박스 위치 - 검정 원 바깥쪽으로 충분히 이동 */
 .con-strength__box--01 {
   left: 0;
-  top: 82px;
+  top: 120px;
 }
 
 .con-strength__box--02 {
   right: 0;
-  top: 82px;
+  top: 120px;
 }
 
 .con-strength__box--03 {
   right: 0;
-  bottom: 80px;
+  bottom: 110px;
 }
 
 .con-strength__box--04 {
   left: 0;
-  bottom: 80px;
+  bottom: 110px;
+}
+
+/* 박스와 원 사이 연결선 */
+.con-strength__box::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 54px;
+  height: 1px;
+  background: rgba(255, 121, 0, 0.45);
+}
+
+.con-strength__box--01::after,
+.con-strength__box--04::after {
+  right: -54px;
+}
+
+.con-strength__box--02::after,
+.con-strength__box--03::after {
+  left: -54px;
+}
+
+/* Hover 디테일 */
+.con-strength__box,
+.con-strength__circle,
+.con-strength__center {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.con-strength__box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 28px 62px rgba(255, 121, 0, 0.12);
+}
+
+.con-strength__circle:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 24px 48px rgba(0, 0, 0, 0.22),
+    0 0 0 8px rgba(255, 121, 0, 0.08);
+}
+
+/* ==============================
+   Strength Responsive
+============================== */
+@media screen and (max-width: 1280px) {
+  .con-strength__inner {
+    width: calc(100% - 80px);
+  }
+
+  .con-strength__diagram {
+    width: 960px;
+  }
+
+  .con-strength__box {
+    width: 220px;
+  }
+
+  .con-strength__circle--01 {
+    left: 278px;
+  }
+
+  .con-strength__circle--02 {
+    right: 278px;
+  }
+
+  .con-strength__circle--03 {
+    right: 266px;
+  }
+
+  .con-strength__circle--04 {
+    left: 266px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .con-strength {
+    padding: 90px 0 110px;
+  }
+
+  .con-strength__diagram {
+    width: 100%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .con-strength__diagram::before,
+  .con-strength__diagram::after {
+    display: none;
+  }
+
+  .con-strength__center,
+  .con-strength__circle,
+  .con-strength__box {
+    position: relative;
+    left: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    transform: none;
+    margin: 0 auto;
+  }
+
+  .con-strength__center {
+    order: 1;
+    width: 170px;
+    height: 170px;
+    margin-bottom: 18px;
+  }
+
+  .con-strength__circle {
+    order: 2;
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+    min-height: 62px;
+    border-radius: 999px;
+  }
+
+  .con-strength__box {
+    order: 3;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .con-strength__box::after {
+    display: none;
+  }
+
+  .con-strength__circle:hover,
+  .con-strength__box:hover {
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .con-strength {
+    padding: 80px 0 96px;
+  }
+
+  .con-strength__inner {
+    width: calc(100% - 40px);
+  }
+
+  .con-strength h3 {
+    margin-bottom: 52px;
+    font-size: 25px;
+  }
+
+  .con-strength__center {
+    width: 150px;
+    height: 150px;
+    font-size: 19px;
+  }
+
+  .con-strength__circle {
+    font-size: 14px;
+  }
+
+  .con-strength__box {
+    padding: 22px 24px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .con-strength__inner {
+    width: calc(100% - 28px);
+  }
+
+  .con-strength h3 {
+    font-size: 23px;
+  }
 }
 /* ==============================
    Check
@@ -980,6 +1239,7 @@
     transform: translateY(0);
   }
 }
+
 /* ==============================
    Responsive
 ============================== */
