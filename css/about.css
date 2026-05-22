@@ -541,6 +541,7 @@
 
 .about-field__quote strong {
   color: var(--main-orange);
+  font-size: 22px;
 }
 
 /* ==============================
