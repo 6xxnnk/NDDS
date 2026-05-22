@@ -1,11 +1,6 @@
 /* ==============================
-   Sub Common
+   About Page Common
 ============================== */
-.gnb__item a.is-active {
-  color: var(--main-orange);
-  font-weight: 800;
-}
-
 .sub-main {
   padding-top: var(--header-height);
 }
@@ -67,9 +62,7 @@
   font-weight: 900;
   letter-spacing: -0.06em;
   color: #fff;
-}
-
-/* ==============================
+}/* ==============================
    About Intro
 ============================== */
 .about-intro {
@@ -88,6 +81,7 @@
 }
 
 .about-intro__media {
+  width: 520px;
   display: flex;
   flex-direction: column;
   gap: 34px;
@@ -106,17 +100,18 @@
 }
 
 .about-intro__img--large {
-  width: 440px;
+  width: 100%;
   height: 230px;
 }
 
 .about-intro__img-row {
+  width: 100%;
   display: flex;
   gap: 34px;
 }
 
 .about-intro__img-row .about-intro__img {
-  width: 190px;
+  flex: 1;
   height: 230px;
 }
 
@@ -163,7 +158,6 @@
   letter-spacing: -0.04em;
   color: #333;
 }
-
 /* ==============================
    About Slogan
 ============================== */
@@ -393,7 +387,7 @@
 }
 
 /* ==============================
-   Sub Responsive
+   About Responsive
 ============================== */
 @media screen and (max-width: 1440px) {
   .sub-visual__inner,

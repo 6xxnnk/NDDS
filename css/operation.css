@@ -1,11 +1,6 @@
 /* ==============================
    Operation Page Common
 ============================== */
-.gnb__item a.is-active {
-  color: var(--main-orange);
-  font-weight: 800;
-}
-
 .operation-main {
   padding-top: var(--header-height);
   background: #fff;
