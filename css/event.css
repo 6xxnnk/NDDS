@@ -528,7 +528,435 @@
   height: 100%;
   object-fit: cover;
 }
+/* ==============================
+   Event Premium Detail Upgrade
+   event.css 맨 아래에 추가
+============================== */
 
+/* 공통 섹션 배경 글로우 */
+.evt-service,
+.evt-type,
+.evt-consult {
+  position: relative;
+  overflow: hidden;
+}
+
+.evt-service::before,
+.evt-consult::before {
+  content: "";
+  position: absolute;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 121, 0, 0.12) 0%,
+    rgba(255, 121, 0, 0.04) 42%,
+    rgba(255, 121, 0, 0) 72%
+  );
+  filter: blur(18px);
+  pointer-events: none;
+}
+
+.evt-service::before {
+  left: -220px;
+  top: 120px;
+}
+
+.evt-consult::before {
+  right: -220px;
+  top: 160px;
+}
+
+.evt-service__inner,
+.evt-type__inner,
+.evt-consult__inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==============================
+   Banner Upgrade
+============================== */
+.evt-banner {
+  box-shadow: inset 0 26px 50px rgba(0, 0, 0, 0.08);
+}
+
+.evt-banner::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -120px;
+  width: 780px;
+  height: 240px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  filter: blur(28px);
+  pointer-events: none;
+}
+
+.evt-banner h3 {
+  position: relative;
+  display: inline-block;
+}
+
+.evt-banner h3::before,
+.evt-banner h3::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 52px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.evt-banner h3::before {
+  left: -76px;
+}
+
+.evt-banner h3::after {
+  right: -76px;
+}
+
+/* ==============================
+   Service Card Upgrade
+============================== */
+.evt-service h3 {
+  position: relative;
+}
+
+.evt-service h3::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 4px;
+  margin: 24px auto 0;
+  border-radius: 999px;
+  background: var(--main-orange);
+  box-shadow: 0 0 24px rgba(255, 121, 0, 0.34);
+}
+
+.evt-service__col {
+  position: relative;
+}
+
+.evt-service__col h4 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.evt-service__col h4::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--main-orange);
+  box-shadow: 0 0 18px rgba(255, 121, 0, 0.42);
+}
+
+.evt-service__card {
+  position: relative;
+  overflow: hidden;
+}
+
+.evt-service__card::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -70px;
+  width: 180px;
+  height: 180px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: rgba(255, 121, 0, 0.1);
+  filter: blur(26px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.evt-service__card:hover::before {
+  opacity: 1;
+}
+
+.evt-service__card h5,
+.evt-service__card p {
+  position: relative;
+  z-index: 2;
+}
+
+/* 카드별 은은한 순번 */
+.evt-service__col .evt-service__card {
+  counter-increment: evtCard;
+}
+
+.evt-service__col {
+  counter-reset: evtCard;
+}
+
+.evt-service__card h5::before {
+  content: "0" counter(evtCard);
+  display: block;
+  margin-bottom: 10px;
+  color: rgba(255, 121, 0, 0.72);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+}
+
+/* ==============================
+   Type Card Upgrade
+============================== */
+.evt-type {
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 121, 0, 0.07) 0%, rgba(255, 121, 0, 0) 28%),
+    #fff;
+}
+
+.evt-type h3 {
+  position: relative;
+}
+
+.evt-type h3::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 4px;
+  margin: 24px auto 0;
+  border-radius: 999px;
+  background: var(--main-orange);
+  box-shadow: 0 0 24px rgba(255, 121, 0, 0.34);
+}
+
+.evt-type__card {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.evt-type__card::before {
+  content: "";
+  position: absolute;
+  right: -42px;
+  top: -42px;
+  z-index: -1;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.evt-type__card::after {
+  content: "";
+  position: absolute;
+  left: -40px;
+  bottom: -40px;
+  z-index: -1;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.evt-type__card h4 {
+  position: relative;
+}
+
+.evt-type__card h4::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 2px;
+  margin: 18px auto 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+/* ==============================
+   Consult Upgrade
+============================== */
+.evt-consult__head h3 {
+  position: relative;
+}
+
+.evt-consult__head h3::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 4px;
+  margin: 24px auto 0;
+  border-radius: 999px;
+  background: var(--main-orange);
+  box-shadow: 0 0 24px rgba(255, 121, 0, 0.34);
+}
+
+.evt-consult__img {
+  position: relative;
+}
+
+.evt-consult__img::after {
+  content: "NDDS EVENT";
+  position: absolute;
+  left: 26px;
+  bottom: 24px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  backdrop-filter: blur(8px);
+}
+
+.evt-consult__img img {
+  transition: transform 0.7s ease;
+}
+
+.evt-consult__img:hover img {
+  transform: scale(1.05);
+}
+
+.evt-consult__item {
+  position: relative;
+  overflow: hidden;
+}
+
+.evt-consult__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--main-orange);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.evt-consult__item::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(255, 121, 0, 0.38);
+}
+
+.evt-consult__item:hover::before {
+  opacity: 1;
+}
+
+/* ==============================
+   CTA Upgrade
+============================== */
+.evt-cta__content h3 {
+  position: relative;
+}
+
+.evt-cta__content h3::before {
+  content: "";
+  display: block;
+  width: 56px;
+  height: 4px;
+  margin-bottom: 28px;
+  border-radius: 999px;
+  background: var(--main-orange);
+  box-shadow: 0 0 24px rgba(255, 121, 0, 0.42);
+}
+
+.evt-cta__right {
+  position: relative;
+}
+
+.evt-cta__right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.42) 0%,
+      rgba(0, 0, 0, 0) 44%
+    );
+  pointer-events: none;
+}
+
+.evt-cta__right img {
+  transition: transform 1.2s ease;
+}
+
+.evt-cta:hover .evt-cta__right img {
+  transform: scale(1.04);
+}
+
+.evt-cta__btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.evt-cta__btn::after {
+  content: "";
+  position: absolute;
+  left: -80%;
+  top: 0;
+  width: 48%;
+  height: 100%;
+  background: linear-gradient(
+    110deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.42) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  transition: left 0.65s ease;
+}
+
+.evt-cta__btn:hover::after {
+  left: 130%;
+}
+
+/* ==============================
+   Mobile Detail Control
+============================== */
+@media screen and (max-width: 768px) {
+  .evt-banner h3::before,
+  .evt-banner h3::after {
+    display: none;
+  }
+
+  .evt-banner::before {
+    font-size: 86px;
+  }
+
+  .evt-type::before {
+    font-size: 72px;
+  }
+
+  .evt-service::before,
+  .evt-consult::before {
+    opacity: 0.55;
+  }
+
+  .evt-service__card:hover,
+  .evt-type__card:hover,
+  .evt-consult__item:hover,
+  .evt-cta__btn:hover {
+    transform: none;
+  }
+
+  .evt-consult__img:hover img,
+  .evt-cta:hover .evt-cta__right img {
+    transform: none;
+  }
+}
 /* ==============================
    Responsive
 ============================== */
