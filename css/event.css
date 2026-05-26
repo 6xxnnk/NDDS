@@ -2,8 +2,28 @@
    Event Page Common
 ============================== */
 .event-main {
+  position: relative;
   padding-top: var(--header-height);
+  background: #ff7900;
+  overflow: hidden;
+}
+
+/* 메인 메뉴 뒤 배경은 흰색 유지 */
+.event-main::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  width: 100%;
+  height: var(--header-height);
   background: #fff;
+  pointer-events: none;
+}
+
+.event-main > * {
+  position: relative;
+  z-index: 1;
 }
 
 /* ==============================
@@ -12,9 +32,9 @@
 .evt-visual {
   position: relative;
   width: 100%;
-  height: 430px;
+  height: 520px;
   overflow: hidden;
-  border-radius: 0 0 64px 64px;
+  border-radius: 0 0 80px 80px;
   background-image: url("../img/event_visual.jpg");
   background-repeat: no-repeat;
   background-position: center center;
@@ -28,11 +48,17 @@
   inset: 0;
   z-index: 1;
   background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.24) 0%,
+      rgba(0, 0, 0, 0.48) 68%,
+      rgba(255, 121, 0, 0.22) 100%
+    ),
     radial-gradient(
-      circle at 50% 46%,
+      circle at 50% 54%,
       rgba(255, 121, 0, 0.28) 0%,
-      rgba(255, 121, 0, 0.1) 30%,
-      rgba(255, 121, 0, 0) 64%
+      rgba(255, 121, 0, 0.12) 34%,
+      rgba(255, 121, 0, 0) 70%
     );
   pointer-events: none;
 }
@@ -41,18 +67,18 @@
   content: "";
   position: absolute;
   left: 50%;
-  bottom: -120px;
-  z-index: 1;
-  width: 780px;
-  height: 280px;
+  bottom: -150px;
+  z-index: 2;
+  width: 900px;
+  height: 360px;
   transform: translateX(-50%);
   background: radial-gradient(
     ellipse,
-    rgba(255, 121, 0, 0.3) 0%,
-    rgba(255, 121, 0, 0.1) 42%,
-    rgba(255, 121, 0, 0) 72%
+    rgba(255, 121, 0, 0.38) 0%,
+    rgba(255, 121, 0, 0.14) 44%,
+    rgba(255, 121, 0, 0) 74%
   );
-  filter: blur(18px);
+  filter: blur(24px);
   pointer-events: none;
 }
 
@@ -60,13 +86,20 @@
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.52);
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.52) 0%,
+      rgba(0, 0, 0, 0.28) 48%,
+      rgba(0, 0, 0, 0.52) 100%
+    );
+  pointer-events: none;
 }
 
 .evt-visual__inner {
   position: relative;
   z-index: 3;
-  width: 1280px;
+  width: min(1280px, calc(100% - 80px));
   height: 100%;
   margin: 0 auto;
 
@@ -75,27 +108,61 @@
   align-items: center;
   justify-content: center;
 
+  text-align: center;
   animation: evtHeroReveal 1s ease forwards;
 }
 
-.evt-visual__inner p {
-  margin: 0 0 16px;
-  font-size: 32px;
+.evt-visual__inner::before {
+  content: "APARTMENT EVENT";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 36px;
+  padding: 0 18px;
+  margin-bottom: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 13px;
   line-height: 1;
-  font-weight: 900;
-  letter-spacing: -0.08em;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.evt-visual__inner p {
+  margin: 0 0 18px;
+  font-size: 34px;
+  line-height: 1;
+  font-weight: 600;
+  letter-spacing: -0.055em;
   color: #fff;
-  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.42);
+  text-shadow: 0 10px 34px rgba(0, 0, 0, 0.46);
 }
 
 .evt-visual__inner h2 {
   margin: 0;
-  font-size: 48px;
-  line-height: 1.2;
-  font-weight: 900;
-  letter-spacing: -0.065em;
+  font-size: 58px;
+  line-height: 1.14;
+  font-weight: 700;
+  letter-spacing: -0.06em;
   color: #fff;
-  text-shadow: 0 8px 28px rgba(0, 0, 0, 0.42);
+  text-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
+}
+
+.evt-visual__inner h2::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 4px;
+  margin: 30px auto 0;
+  border-radius: 999px;
+  background: var(--main-orange);
+  box-shadow: 0 0 30px rgba(255, 121, 0, 0.65);
 }
 
 @keyframes evtHeroReveal {
@@ -117,10 +184,12 @@
 ============================== */
 .evt-banner {
   position: relative;
-  padding: 64px 0;
-  background: var(--main-orange);
+  z-index: 1;
+  padding: 78px 0;
+  background: #ff7900;
   color: #fff;
   overflow: hidden;
+  box-shadow: none;
 }
 
 .evt-banner::before {
@@ -129,115 +198,246 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  color: rgba(255, 255, 255, 0.1);
-  font-size: 160px;
+  color: rgba(255, 255, 255, 0.08);
+  font-size: 190px;
   line-height: 1;
-  font-weight: 900;
-  letter-spacing: -0.08em;
+  font-weight: 700;
+  letter-spacing: -0.1em;
   pointer-events: none;
+  white-space: nowrap;
+}
+
+.evt-banner::after {
+  display: none;
 }
 
 .evt-banner__inner {
   position: relative;
   z-index: 2;
-  width: 1280px;
+  width: min(1280px, calc(100% - 80px));
   margin: 0 auto;
   text-align: center;
 }
 
 .evt-banner h3 {
+  position: relative;
+  display: inline-block;
   margin: 0;
-  font-size: 30px;
-  line-height: 1.35;
-  font-weight: 900;
+  font-size: 34px;
+  line-height: 1.38;
+  font-weight: 700;
   letter-spacing: -0.055em;
+  text-shadow: none;
+}
+
+.evt-banner h3::before,
+.evt-banner h3::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 52px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.72);
+}
+
+.evt-banner h3::before {
+  left: -76px;
+}
+
+.evt-banner h3::after {
+  right: -76px;
 }
 
 /* ==============================
    Service
 ============================== */
 .evt-service {
-  padding: 90px 0 100px;
-  background: #f7f7f7;
+  position: relative;
+  padding: 110px 0 120px;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(255, 121, 0, 0.08) 0%, transparent 30%),
+    linear-gradient(180deg, #fff 0%, #f8f8f8 100%);
+  overflow: hidden;
+}
+
+.evt-service::before {
+  content: "";
+  position: absolute;
+  left: -220px;
+  top: 120px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 121, 0, 0.12) 0%,
+    rgba(255, 121, 0, 0.04) 42%,
+    rgba(255, 121, 0, 0) 72%
+  );
+  filter: blur(18px);
+  pointer-events: none;
 }
 
 .evt-service__inner {
-  width: 1280px;
+  position: relative;
+  z-index: 2;
+  width: min(1280px, calc(100% - 80px));
   margin: 0 auto;
 }
 
 .evt-service h3 {
-  margin: 0 0 58px;
-  font-size: 30px;
+  position: relative;
+  margin: 0 0 70px;
+  font-size: 34px;
   line-height: 1.45;
-  font-weight: 900;
-  letter-spacing: -0.06em;
-  color: #222;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  color: #191919;
   text-align: center;
 }
 
 .evt-service h3 strong {
   color: var(--main-orange);
+  font-weight: 800;
+}
+
+.evt-service h3::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 4px;
+  margin: 24px auto 0;
+  border-radius: 999px;
+  background: var(--main-orange);
+  box-shadow: 0 0 24px rgba(255, 121, 0, 0.34);
 }
 
 .evt-service__grid {
   display: grid;
   grid-template-columns: 1fr 1px 1fr;
-  gap: 56px;
+  gap: 64px;
   align-items: start;
 }
 
 .evt-service__divider {
   width: 1px;
-  min-height: 470px;
-  background: var(--main-orange);
+  min-height: 520px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 121, 0, 0) 0%,
+    rgba(255, 121, 0, 0.7) 18%,
+    rgba(255, 121, 0, 0.7) 82%,
+    rgba(255, 121, 0, 0) 100%
+  );
+}
+
+.evt-service__col {
+  position: relative;
+  counter-reset: evtCard;
 }
 
 .evt-service__col h4 {
-  margin: 0 0 34px;
-  font-size: 21px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+
+  margin: 0 0 38px;
+  font-size: 23px;
   line-height: 1.4;
-  font-weight: 900;
-  letter-spacing: -0.05em;
-  color: #222;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  color: #191919;
   text-align: center;
+}
+
+.evt-service__col h4::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--main-orange);
+  box-shadow: 0 0 18px rgba(255, 121, 0, 0.42);
 }
 
 .evt-service__card {
-  width: 340px;
-  min-height: 120px;
-  margin: 0 auto 24px;
-  padding: 28px 24px;
-  border: 1px solid rgba(255, 121, 0, 0.6);
-  border-radius: 10px;
-  background: #fff;
-  text-align: center;
-  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.04);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+  position: relative;
+  width: min(390px, 100%);
+  min-height: 128px;
+  margin: 0 auto 22px;
+  padding: 30px 30px 28px;
+  border: 1px solid rgba(255, 121, 0, 0.18);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: left;
+  box-shadow: 0 24px 70px rgba(40, 24, 12, 0.07);
+  overflow: hidden;
+  counter-increment: evtCard;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-.evt-service__card:hover {
-  transform: translateY(-8px);
-  border-color: var(--main-orange);
-  box-shadow: 0 28px 62px rgba(255, 121, 0, 0.14);
+.evt-service__card::before {
+  content: "0" counter(evtCard);
+  display: block;
+  margin-bottom: 18px;
+  color: rgba(255, 121, 0, 0.78);
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.evt-service__card::after {
+  content: "";
+  position: absolute;
+  right: -44px;
+  top: -44px;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  background: rgba(255, 121, 0, 0.08);
+  transition: all 0.35s ease;
 }
 
 .evt-service__card h5 {
+  position: relative;
+  z-index: 2;
   margin: 0 0 12px;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.45;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  color: #222;
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  color: #191919;
 }
 
 .evt-service__card p {
+  position: relative;
+  z-index: 2;
   margin: 0;
-  font-size: 14px;
-  line-height: 1.65;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  color: #777;
+  font-size: 15px;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  color: rgba(34, 34, 34, 0.66);
+}
+
+.evt-service__card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 121, 0, 0.46);
+  box-shadow: 0 34px 86px rgba(255, 121, 0, 0.16);
+}
+
+.evt-service__card:hover::after {
+  right: -20px;
+  top: -20px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 121, 0, 0.13);
 }
 
 /* ==============================
@@ -245,7 +445,7 @@
 ============================== */
 .evt-type {
   position: relative;
-  padding: 100px 0 110px;
+  padding: 110px 0 120px;
   background: #fff;
   overflow: hidden;
 }
@@ -254,85 +454,232 @@
   content: "FESTIVAL";
   position: absolute;
   left: 50%;
-  bottom: 30px;
+  bottom: 8px;
   transform: translateX(-50%);
-  font-size: 130px;
+  font-size: 160px;
   line-height: 1;
-  font-weight: 900;
-  letter-spacing: -0.08em;
-  color: rgba(255, 121, 0, 0.045);
+  font-weight: 700;
+  letter-spacing: -0.1em;
+  color: rgba(255, 121, 0, 0.055);
   pointer-events: none;
+  white-space: nowrap;
 }
 
 .evt-type__inner {
   position: relative;
   z-index: 2;
-  width: 1280px;
+  width: min(1280px, calc(100% - 80px));
   margin: 0 auto;
 }
 
 .evt-type h3 {
-  margin: 0 0 76px;
-  font-size: 30px;
+  position: relative;
+  margin: 0 0 70px;
+  font-size: 34px;
   line-height: 1.45;
-  font-weight: 900;
-  letter-spacing: -0.06em;
-  color: #222;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  color: #191919;
   text-align: center;
 }
 
+.evt-type h3::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 4px;
+  margin: 24px auto 0;
+  border-radius: 999px;
+  background: var(--main-orange);
+  box-shadow: 0 0 24px rgba(255, 121, 0, 0.34);
+}
+
 .evt-type h3 strong {
+  position: relative;
   color: var(--main-orange);
+  font-weight: 800;
+}
+
+.evt-type h3 strong::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  z-index: -1;
+  width: 100%;
+  height: 10px;
+  transform: translateX(-50%);
+  background: rgba(255, 121, 0, 0.18);
+  border-radius: 999px;
 }
 
 .evt-type__list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 26px;
 }
 
 .evt-type__card {
-  min-height: 250px;
-  padding: 54px 28px 40px;
-  border-radius: 12px;
-  background: var(--main-orange);
-  color: #fff;
-  text-align: center;
-  box-shadow: 0 26px 60px rgba(255, 121, 0, 0.18);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  min-height: 280px;
+  padding: 38px 28px 36px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(255, 121, 0, 0.16);
+  color: #222;
+  text-align: left;
+  box-shadow: 0 24px 70px rgba(40, 24, 12, 0.08);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-.evt-type__card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 36px 80px rgba(255, 121, 0, 0.26);
+.evt-type__card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(135deg, var(--main-orange) 0%, #ff9a2f 100%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.evt-type__card::after {
+  content: "";
+  position: absolute;
+  right: -38px;
+  top: -38px;
+  z-index: 1;
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  background: rgba(255, 121, 0, 0.1);
+  transition: all 0.35s ease;
+  pointer-events: none;
+}
+
+.evt-type__card > * {
+  position: relative;
+  z-index: 3;
+}
+
+.evt-type__card .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 34px;
+  border-radius: 16px;
+  background: rgba(255, 121, 0, 0.12);
+  color: var(--main-orange);
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  transition:
+    color 0.35s ease,
+    background 0.35s ease;
 }
 
 .evt-type__card h4 {
-  margin: 0 0 32px;
-  font-size: 24px;
-  line-height: 1.35;
-  font-weight: 900;
-  letter-spacing: -0.05em;
+  margin: 0 0 24px;
+  font-size: 25px;
+  line-height: 1.32;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+  color: #191919;
+  transition: color 0.35s ease;
+}
+
+.evt-type__card h4::after {
+  content: "";
+  display: block;
+  width: 34px;
+  height: 2px;
+  margin: 18px 0 0;
+  border-radius: 999px;
+  background: rgba(255, 121, 0, 0.35);
+  transition: background 0.35s ease;
 }
 
 .evt-type__card p {
   margin: 0;
   font-size: 16px;
-  line-height: 1.65;
-  font-weight: 600;
-  letter-spacing: -0.04em;
+  line-height: 1.75;
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  color: rgba(34, 34, 34, 0.7);
+  transition: color 0.35s ease;
+}
+
+.evt-type__card:hover {
+  transform: translateY(-12px);
+  border-color: transparent;
+  box-shadow: 0 34px 90px rgba(255, 121, 0, 0.32);
+}
+
+.evt-type__card:hover::before {
+  opacity: 1;
+}
+
+.evt-type__card:hover::after {
+  right: -20px;
+  top: -20px;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.evt-type__card:hover .num {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.evt-type__card:hover h4,
+.evt-type__card:hover p {
+  color: #fff;
+}
+
+.evt-type__card:hover h4::after {
+  background: rgba(255, 255, 255, 0.72);
 }
 
 /* ==============================
    Consult
 ============================== */
 .evt-consult {
+  position: relative;
   padding: 90px 0 110px;
   background: #f7f7f7;
+  overflow: hidden;
+}
+
+.evt-consult::before {
+  content: "";
+  position: absolute;
+  right: -220px;
+  top: 160px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 121, 0, 0.12) 0%,
+    rgba(255, 121, 0, 0.04) 42%,
+    rgba(255, 121, 0, 0) 72%
+  );
+  filter: blur(18px);
+  pointer-events: none;
 }
 
 .evt-consult__inner {
-  width: 1280px;
+  position: relative;
+  z-index: 2;
+  width: min(1280px, calc(100% - 80px));
   margin: 0 auto;
 }
 
@@ -342,23 +689,36 @@
 }
 
 .evt-consult__head h3 {
+  position: relative;
   margin: 0 0 34px;
   font-size: 30px;
   line-height: 1.45;
-  font-weight: 900;
-  letter-spacing: -0.06em;
+  font-weight: 700;
+  letter-spacing: -0.055em;
   color: #222;
+}
+
+.evt-consult__head h3::after {
+  content: "";
+  display: block;
+  width: 58px;
+  height: 4px;
+  margin: 24px auto 0;
+  border-radius: 999px;
+  background: var(--main-orange);
+  box-shadow: 0 0 24px rgba(255, 121, 0, 0.34);
 }
 
 .evt-consult__head h3 strong {
   color: var(--main-orange);
+  font-weight: 800;
 }
 
 .evt-consult__head p {
   margin: 0;
   font-size: 15px;
   line-height: 1.75;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.04em;
   color: #555;
 }
@@ -371,6 +731,7 @@
 }
 
 .evt-consult__img {
+  position: relative;
   height: 500px;
   overflow: hidden;
   border-radius: 24px;
@@ -378,10 +739,30 @@
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.1);
 }
 
+.evt-consult__img::after {
+  content: "NDDS EVENT";
+  position: absolute;
+  left: 26px;
+  bottom: 24px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.72);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  backdrop-filter: blur(8px);
+}
+
 .evt-consult__img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.evt-consult__img:hover img {
+  transform: scale(1.05);
 }
 
 .evt-consult__list {
@@ -391,12 +772,38 @@
 }
 
 .evt-consult__item {
+  position: relative;
   padding: 24px 34px;
   border: 1px solid rgba(255, 121, 0, 0.65);
   border-radius: 10px;
   background: #fff;
   text-align: center;
+  overflow: hidden;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.evt-consult__item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5px;
+  height: 100%;
+  background: var(--main-orange);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.evt-consult__item::after {
+  content: "";
+  position: absolute;
+  right: 22px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  background: rgba(255, 121, 0, 0.38);
 }
 
 .evt-consult__item:hover {
@@ -404,11 +811,15 @@
   box-shadow: 0 24px 56px rgba(255, 121, 0, 0.12);
 }
 
+.evt-consult__item:hover::before {
+  opacity: 1;
+}
+
 .evt-consult__item h4 {
   margin: 0 0 8px;
   font-size: 21px;
   line-height: 1.35;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: -0.05em;
   color: var(--main-orange);
 }
@@ -417,7 +828,7 @@
   margin: 0;
   font-size: 14px;
   line-height: 1.65;
-  font-weight: 500;
+  font-weight: 400;
   letter-spacing: -0.04em;
   color: #333;
 }
@@ -474,391 +885,13 @@
 }
 
 .evt-cta__content h3 {
+  position: relative;
   margin: 0 0 42px;
   font-size: 36px;
   line-height: 1.35;
-  font-weight: 900;
-  letter-spacing: -0.06em;
+  font-weight: 700;
+  letter-spacing: -0.055em;
   color: #fff;
-}
-
-.evt-cta__content h3 strong {
-  color: var(--main-orange);
-}
-
-.evt-cta__content p {
-  margin: 0 0 34px;
-  font-size: 17px;
-  line-height: 1.7;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  color: rgba(255, 255, 255, 0.86);
-}
-
-.evt-cta__btn {
-  width: 180px;
-  height: 48px;
-  border-radius: 999px;
-  background: var(--main-orange);
-  color: #111;
-  font-size: 16px;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  box-shadow: 0 18px 38px rgba(255, 121, 0, 0.24);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.evt-cta__btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 26px 52px rgba(255, 121, 0, 0.34);
-}
-
-.evt-cta__right {
-  overflow: hidden;
-}
-
-.evt-cta__right img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-/* ==============================
-   Event Premium Detail Upgrade
-   event.css 맨 아래에 추가
-============================== */
-
-/* 공통 섹션 배경 글로우 */
-.evt-service,
-.evt-type,
-.evt-consult {
-  position: relative;
-  overflow: hidden;
-}
-
-.evt-service::before,
-.evt-consult::before {
-  content: "";
-  position: absolute;
-  width: 520px;
-  height: 520px;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle,
-    rgba(255, 121, 0, 0.12) 0%,
-    rgba(255, 121, 0, 0.04) 42%,
-    rgba(255, 121, 0, 0) 72%
-  );
-  filter: blur(18px);
-  pointer-events: none;
-}
-
-.evt-service::before {
-  left: -220px;
-  top: 120px;
-}
-
-.evt-consult::before {
-  right: -220px;
-  top: 160px;
-}
-
-.evt-service__inner,
-.evt-type__inner,
-.evt-consult__inner {
-  position: relative;
-  z-index: 2;
-}
-
-/* ==============================
-   Banner Upgrade
-============================== */
-.evt-banner {
-  box-shadow: inset 0 26px 50px rgba(0, 0, 0, 0.08);
-}
-
-.evt-banner::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  bottom: -120px;
-  width: 780px;
-  height: 240px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-  filter: blur(28px);
-  pointer-events: none;
-}
-
-.evt-banner h3 {
-  position: relative;
-  display: inline-block;
-}
-
-.evt-banner h3::before,
-.evt-banner h3::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  width: 52px;
-  height: 2px;
-  background: rgba(255, 255, 255, 0.72);
-}
-
-.evt-banner h3::before {
-  left: -76px;
-}
-
-.evt-banner h3::after {
-  right: -76px;
-}
-
-/* ==============================
-   Service Card Upgrade
-============================== */
-.evt-service h3 {
-  position: relative;
-}
-
-.evt-service h3::after {
-  content: "";
-  display: block;
-  width: 58px;
-  height: 4px;
-  margin: 24px auto 0;
-  border-radius: 999px;
-  background: var(--main-orange);
-  box-shadow: 0 0 24px rgba(255, 121, 0, 0.34);
-}
-
-.evt-service__col {
-  position: relative;
-}
-
-.evt-service__col h4 {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-}
-
-.evt-service__col h4::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: var(--main-orange);
-  box-shadow: 0 0 18px rgba(255, 121, 0, 0.42);
-}
-
-.evt-service__card {
-  position: relative;
-  overflow: hidden;
-}
-
-.evt-service__card::before {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: -70px;
-  width: 180px;
-  height: 180px;
-  transform: translateX(-50%);
-  border-radius: 50%;
-  background: rgba(255, 121, 0, 0.1);
-  filter: blur(26px);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.evt-service__card:hover::before {
-  opacity: 1;
-}
-
-.evt-service__card h5,
-.evt-service__card p {
-  position: relative;
-  z-index: 2;
-}
-
-/* 카드별 은은한 순번 */
-.evt-service__col .evt-service__card {
-  counter-increment: evtCard;
-}
-
-.evt-service__col {
-  counter-reset: evtCard;
-}
-
-.evt-service__card h5::before {
-  content: "0" counter(evtCard);
-  display: block;
-  margin-bottom: 10px;
-  color: rgba(255, 121, 0, 0.72);
-  font-size: 13px;
-  line-height: 1;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-}
-
-/* ==============================
-   Type Card Upgrade
-============================== */
-.evt-type {
-  background:
-    radial-gradient(circle at 18% 20%, rgba(255, 121, 0, 0.07) 0%, rgba(255, 121, 0, 0) 28%),
-    #fff;
-}
-
-.evt-type h3 {
-  position: relative;
-}
-
-.evt-type h3::after {
-  content: "";
-  display: block;
-  width: 58px;
-  height: 4px;
-  margin: 24px auto 0;
-  border-radius: 999px;
-  background: var(--main-orange);
-  box-shadow: 0 0 24px rgba(255, 121, 0, 0.34);
-}
-
-.evt-type__card {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-
-.evt-type__card::before {
-  content: "";
-  position: absolute;
-  right: -42px;
-  top: -42px;
-  z-index: -1;
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.evt-type__card::after {
-  content: "";
-  position: absolute;
-  left: -40px;
-  bottom: -40px;
-  z-index: -1;
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.24);
-}
-
-.evt-type__card h4 {
-  position: relative;
-}
-
-.evt-type__card h4::after {
-  content: "";
-  display: block;
-  width: 34px;
-  height: 2px;
-  margin: 18px auto 0;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
-}
-
-/* ==============================
-   Consult Upgrade
-============================== */
-.evt-consult__head h3 {
-  position: relative;
-}
-
-.evt-consult__head h3::after {
-  content: "";
-  display: block;
-  width: 58px;
-  height: 4px;
-  margin: 24px auto 0;
-  border-radius: 999px;
-  background: var(--main-orange);
-  box-shadow: 0 0 24px rgba(255, 121, 0, 0.34);
-}
-
-.evt-consult__img {
-  position: relative;
-}
-
-.evt-consult__img::after {
-  content: "NDDS EVENT";
-  position: absolute;
-  left: 26px;
-  bottom: 24px;
-  padding: 9px 16px;
-  border-radius: 999px;
-  background: rgba(0, 0, 0, 0.72);
-  color: #fff;
-  font-size: 13px;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  backdrop-filter: blur(8px);
-}
-
-.evt-consult__img img {
-  transition: transform 0.7s ease;
-}
-
-.evt-consult__img:hover img {
-  transform: scale(1.05);
-}
-
-.evt-consult__item {
-  position: relative;
-  overflow: hidden;
-}
-
-.evt-consult__item::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 5px;
-  height: 100%;
-  background: var(--main-orange);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.evt-consult__item::after {
-  content: "";
-  position: absolute;
-  right: 22px;
-  top: 50%;
-  width: 7px;
-  height: 7px;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  background: rgba(255, 121, 0, 0.38);
-}
-
-.evt-consult__item:hover::before {
-  opacity: 1;
-}
-
-/* ==============================
-   CTA Upgrade
-============================== */
-.evt-cta__content h3 {
-  position: relative;
 }
 
 .evt-cta__content h3::before {
@@ -872,34 +905,39 @@
   box-shadow: 0 0 24px rgba(255, 121, 0, 0.42);
 }
 
-.evt-cta__right {
-  position: relative;
+.evt-cta__content h3 strong {
+  color: var(--main-orange);
+  font-weight: 800;
 }
 
-.evt-cta__right::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.42) 0%,
-      rgba(0, 0, 0, 0) 44%
-    );
-  pointer-events: none;
-}
-
-.evt-cta__right img {
-  transition: transform 1.2s ease;
-}
-
-.evt-cta:hover .evt-cta__right img {
-  transform: scale(1.04);
+.evt-cta__content p {
+  margin: 0 0 34px;
+  font-size: 17px;
+  line-height: 1.7;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  color: rgba(255, 255, 255, 0.86);
 }
 
 .evt-cta__btn {
   position: relative;
+  width: 180px;
+  height: 48px;
+  border-radius: 999px;
+  background: var(--main-orange);
+  color: #111;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
   overflow: hidden;
+  box-shadow: 0 18px 38px rgba(255, 121, 0, 0.24);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .evt-cta__btn::after {
@@ -919,44 +957,44 @@
   transition: left 0.65s ease;
 }
 
+.evt-cta__btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 26px 52px rgba(255, 121, 0, 0.34);
+}
+
 .evt-cta__btn:hover::after {
   left: 130%;
 }
 
-/* ==============================
-   Mobile Detail Control
-============================== */
-@media screen and (max-width: 768px) {
-  .evt-banner h3::before,
-  .evt-banner h3::after {
-    display: none;
-  }
-
-  .evt-banner::before {
-    font-size: 86px;
-  }
-
-  .evt-type::before {
-    font-size: 72px;
-  }
-
-  .evt-service::before,
-  .evt-consult::before {
-    opacity: 0.55;
-  }
-
-  .evt-service__card:hover,
-  .evt-type__card:hover,
-  .evt-consult__item:hover,
-  .evt-cta__btn:hover {
-    transform: none;
-  }
-
-  .evt-consult__img:hover img,
-  .evt-cta:hover .evt-cta__right img {
-    transform: none;
-  }
+.evt-cta__right {
+  position: relative;
+  overflow: hidden;
 }
+
+.evt-cta__right::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.42) 0%,
+      rgba(0, 0, 0, 0) 44%
+    );
+  pointer-events: none;
+}
+
+.evt-cta__right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s ease;
+}
+
+.evt-cta:hover .evt-cta__right img {
+  transform: scale(1.04);
+}
+
 /* ==============================
    Responsive
 ============================== */
@@ -995,13 +1033,22 @@
     border-radius: 0 0 50px 50px;
   }
 
+  .evt-visual__inner h2 {
+    font-size: 46px;
+  }
+
   .evt-service__grid {
     grid-template-columns: 1fr;
+    gap: 46px;
   }
 
   .evt-service__divider {
     width: 100%;
     min-height: 1px;
+  }
+
+  .evt-service__card {
+    width: 100%;
   }
 
   .evt-type__list {
@@ -1039,6 +1086,10 @@
     padding-top: 72px;
   }
 
+  .event-main::before {
+    height: 72px;
+  }
+
   .evt-visual {
     height: 320px;
     border-radius: 0 0 36px 36px;
@@ -1058,20 +1109,42 @@
     width: calc(100% - 40px);
   }
 
+  .evt-visual__inner::before {
+    height: 32px;
+    padding: 0 14px;
+    margin-bottom: 18px;
+    font-size: 11px;
+  }
+
   .evt-visual__inner p {
-    font-size: 26px;
+    margin-bottom: 14px;
+    font-size: 25px;
   }
 
   .evt-visual__inner h2 {
     font-size: 38px;
   }
 
+  .evt-visual__inner h2::after {
+    width: 52px;
+    margin-top: 24px;
+  }
+
   .evt-banner {
-    padding: 48px 0;
+    padding: 54px 0;
+  }
+
+  .evt-banner::before {
+    font-size: 86px;
   }
 
   .evt-banner h3 {
     font-size: 24px;
+  }
+
+  .evt-banner h3::before,
+  .evt-banner h3::after {
+    display: none;
   }
 
   .evt-service,
@@ -1083,11 +1156,22 @@
   .evt-service h3,
   .evt-type h3,
   .evt-consult__head h3 {
+    margin-bottom: 54px;
     font-size: 25px;
   }
 
+  .evt-service__col h4 {
+    font-size: 20px;
+  }
+
   .evt-service__card {
-    width: 100%;
+    min-height: auto;
+    padding: 28px 24px;
+    border-radius: 18px;
+  }
+
+  .evt-type::before {
+    font-size: 72px;
   }
 
   .evt-type__list {
@@ -1122,6 +1206,18 @@
   .evt-cta__right {
     height: 300px;
   }
+
+  .evt-service__card:hover,
+  .evt-type__card:hover,
+  .evt-consult__item:hover,
+  .evt-cta__btn:hover {
+    transform: none;
+  }
+
+  .evt-consult__img:hover img,
+  .evt-cta:hover .evt-cta__right img {
+    transform: none;
+  }
 }
 
 @media screen and (max-width: 430px) {
@@ -1129,8 +1225,12 @@
     height: 280px;
   }
 
+  .evt-visual__inner p {
+    font-size: 22px;
+  }
+
   .evt-visual__inner h2 {
-    font-size: 33px;
+    font-size: 32px;
   }
 
   .evt-banner h3,
@@ -1138,6 +1238,14 @@
   .evt-type h3,
   .evt-consult__head h3 {
     font-size: 22px;
+  }
+
+  .evt-service__card h5 {
+    font-size: 16px;
+  }
+
+  .evt-service__card p {
+    font-size: 14px;
   }
 
   .evt-type__card h4 {
