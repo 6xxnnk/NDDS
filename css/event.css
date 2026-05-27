@@ -405,13 +405,11 @@
 .evt-type {
   position: relative;
   padding: 110px 0 120px;
-    background:
+  background:
     radial-gradient(circle at 12% 18%, rgba(255, 121, 0, 0.08) 0%, transparent 30%),
     linear-gradient(180deg, #fff 0%, #f8f8f8 100%);
   overflow: hidden;
 }
-
-
 
 .evt-type__inner {
   position: relative;
@@ -527,6 +525,7 @@
 .evt-type__card:hover .evt-type__thumb img {
   transform: scale(1.08);
 }
+
 /* ==============================
    Consult
 ============================== */
@@ -939,6 +938,9 @@
   }
 }
 
+/* ==============================
+   Mobile Design
+============================== */
 @media screen and (max-width: 768px) {
   .event-main {
     padding-top: 72px;
@@ -949,14 +951,35 @@
   }
 
   .evt-visual {
-    height: 320px;
-    border-radius: 0 0 36px 36px;
+    height: 420px;
+    border-radius: 0 0 38px 38px;
+    background-position: center center;
+  }
+
+  .evt-visual::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.18) 0%,
+        rgba(0, 0, 0, 0.54) 72%,
+        rgba(255, 121, 0, 0.3) 100%
+      );
   }
 
   .evt-visual::after {
-    width: 420px;
-    height: 180px;
-    bottom: -80px;
+    width: 480px;
+    height: 220px;
+    bottom: -92px;
+    filter: blur(26px);
+  }
+
+  .evt-visual__dim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.16) 0%,
+        rgba(0, 0, 0, 0.46) 100%
+      );
   }
 
   .evt-visual__inner,
@@ -964,7 +987,12 @@
   .evt-service__inner,
   .evt-type__inner,
   .evt-consult__inner {
-    width: calc(100% - 40px);
+    width: calc(100% - 36px);
+  }
+
+  .evt-visual__inner {
+    justify-content: flex-end;
+    padding-bottom: 62px;
   }
 
   .evt-visual__inner::before {
@@ -972,23 +1000,30 @@
     padding: 0 14px;
     margin-bottom: 18px;
     font-size: 11px;
+    background: rgba(255, 255, 255, 0.14);
   }
 
   .evt-visual__inner p {
-    margin-bottom: 14px;
-    font-size: 25px;
+    margin-bottom: 12px;
+    font-size: 22px;
+    font-weight: 500;
   }
 
   .evt-visual__inner h2 {
-    font-size: 38px;
+    font-size: 40px;
+    line-height: 1.16;
+    font-weight: 800;
   }
 
   .evt-banner {
-    padding: 54px 0;
+    padding: 52px 0;
   }
 
   .evt-banner h3 {
+    display: block;
     font-size: 24px;
+    line-height: 1.48;
+    word-break: keep-all;
   }
 
   .evt-banner h3::before,
@@ -999,77 +1034,324 @@
   .evt-service,
   .evt-type,
   .evt-consult {
-    padding: 76px 0 86px;
+    padding: 78px 0 90px;
   }
 
   .evt-service h3,
   .evt-type h3,
   .evt-consult__head h3 {
-    margin-bottom: 54px;
+    margin-bottom: 42px;
     font-size: 25px;
+    line-height: 1.48;
+    word-break: keep-all;
+  }
+
+  /* Mobile Service */
+  .evt-service {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 121, 0, 0.12) 0%, transparent 36%),
+      linear-gradient(180deg, #fff 0%, #fafafa 100%);
+  }
+
+  .evt-service__grid {
+    gap: 42px;
   }
 
   .evt-service__col h4 {
-    font-size: 20px;
+    justify-content: flex-start;
+    margin-bottom: 20px;
+    font-size: 19px;
+    text-align: left;
+    word-break: keep-all;
   }
 
   .evt-service__card {
+    width: 100%;
     min-height: auto;
+    margin-bottom: 16px;
     padding: 28px 24px;
-    border-radius: 18px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: 0 18px 48px rgba(40, 24, 12, 0.075);
   }
 
-  .evt-type::before {
-    right: -8px;
-    bottom: 22px;
-    font-size: 82px;
+  .evt-service__card::before {
+    margin-bottom: 16px;
+    font-size: 13px;
   }
 
-  .evt-type__card {
-    grid-template-columns: 72px 1fr;
-    min-height: 136px;
-    border-radius: 20px;
+  .evt-service__card::after {
+    right: -52px;
+    top: -52px;
+    width: 126px;
+    height: 126px;
   }
 
-  .evt-type__card::before {
-    left: 72px;
-    top: 24px;
-    bottom: 24px;
+  .evt-service__card h5 {
+    font-size: 17px;
+    word-break: keep-all;
   }
 
-  .evt-type__card .num {
-    font-size: 20px;
-  }
-
-  .evt-type__card h4 {
-    padding: 28px 26px 0;
-    font-size: 21px;
-  }
-
-  .evt-type__card p {
-    padding: 0 26px 28px;
+  .evt-service__card p {
     font-size: 14px;
   }
 
+  /* Mobile Type - Poster Card */
+  .evt-type {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(255, 121, 0, 0.13) 0%, transparent 38%),
+      linear-gradient(180deg, #fff 0%, #fff7f0 100%);
+  }
+
+  .evt-type__list {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .evt-type__card {
+    display: block;
+    min-height: auto;
+    border-radius: 28px;
+    background: rgba(255, 255, 255, 0.94);
+    border: 1px solid rgba(255, 121, 0, 0.16);
+    box-shadow: 0 22px 60px rgba(40, 24, 12, 0.1);
+    overflow: hidden;
+  }
+
+  .evt-type__thumb {
+    position: relative;
+    height: 210px;
+  }
+
+  .evt-type__thumb::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.02) 0%,
+        rgba(0, 0, 0, 0.24) 100%
+      );
+    pointer-events: none;
+  }
+
+  .evt-type__thumb::after {
+    content: "";
+    position: absolute;
+    left: 22px;
+    bottom: -18px;
+    z-index: 2;
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background: var(--main-orange);
+    box-shadow: 0 14px 34px rgba(255, 121, 0, 0.34);
+  }
+
+  .evt-type__thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .evt-type__txt {
+    position: relative;
+    padding: 42px 24px 30px;
+  }
+
+  .evt-type__txt .num {
+    position: absolute;
+    left: 22px;
+    top: -2px;
+    z-index: 3;
+    margin: 0;
+    color: #fff;
+    font-size: 17px;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .evt-type__txt h4 {
+    margin: 0 0 14px;
+    font-size: 23px;
+    line-height: 1.32;
+    font-weight: 800;
+    letter-spacing: -0.06em;
+    color: #191919;
+  }
+
+  .evt-type__txt h4::after {
+    content: "";
+    display: block;
+    width: 34px;
+    height: 2px;
+    margin-top: 14px;
+    border-radius: 999px;
+    background: rgba(255, 121, 0, 0.45);
+  }
+
+  .evt-type__txt p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.75;
+    font-weight: 400;
+    letter-spacing: -0.035em;
+    color: rgba(34, 34, 34, 0.68);
+  }
+
+  /* Mobile Consult - Timeline */
+  .evt-consult {
+    background:
+      linear-gradient(180deg, #f7f7f7 0%, #fff 100%);
+  }
+
+  .evt-consult::before {
+    right: -300px;
+    top: 260px;
+    opacity: 0.8;
+  }
+
   .evt-consult__head {
-    margin-bottom: 54px;
+    margin-bottom: 46px;
+    text-align: left;
+  }
+
+  .evt-consult__head h3 {
+    margin-bottom: 22px;
+  }
+
+  .evt-consult__head p {
+    font-size: 14px;
+    line-height: 1.75;
+    word-break: keep-all;
+  }
+
+  .evt-consult__head p br {
+    display: none;
+  }
+
+  .evt-consult__content {
+    display: block;
   }
 
   .evt-consult__img {
-    height: 280px;
+    height: 260px;
+    margin-bottom: 42px;
+    border-radius: 28px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.12);
+  }
+
+  .evt-consult__img::after {
+    left: 18px;
+    bottom: 18px;
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+
+  .evt-consult__list {
+    position: relative;
+    gap: 18px;
+    padding-left: 18px;
+  }
+
+  .evt-consult__list::before {
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 121, 0, 0) 0%,
+      rgba(255, 121, 0, 0.5) 14%,
+      rgba(255, 121, 0, 0.5) 86%,
+      rgba(255, 121, 0, 0) 100%
+    );
   }
 
   .evt-consult__item {
-    padding: 22px 24px;
+    padding: 22px 22px 22px 26px;
+    border: 1px solid rgba(255, 121, 0, 0.18);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.96);
+    text-align: left;
+    box-shadow: 0 18px 46px rgba(40, 24, 12, 0.07);
+  }
+
+  .evt-consult__item::before {
+    left: -18px;
+    top: 24px;
+    width: 12px;
+    height: 12px;
+    border: 4px solid #fff;
+    border-radius: 50%;
+    background: var(--main-orange);
+    box-shadow: 0 0 0 1px rgba(255, 121, 0, 0.24);
+  }
+
+  .evt-consult__item:not(:last-child)::after {
+    display: none;
+  }
+
+  .evt-consult__item h4 {
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .evt-consult__item p {
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(34, 34, 34, 0.66);
+  }
+
+  /* Mobile CTA */
+  .evt-cta {
+    grid-template-columns: 1fr;
+    background: #000;
   }
 
   .evt-cta__left {
-    min-height: 380px;
-    padding: 70px 24px;
+    min-height: 430px;
+    padding: 78px 24px;
+    justify-content: flex-start;
+  }
+
+  .evt-cta__left::before {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.92) 0%,
+        rgba(0, 0, 0, 0.72) 100%
+      ),
+      url("../img/event_cta_bg.jpg") center/cover no-repeat;
+  }
+
+  .evt-cta__content {
+    width: 100%;
   }
 
   .evt-cta__content h3 {
-    font-size: 29px;
+    margin-bottom: 28px;
+    font-size: 30px;
+    line-height: 1.38;
+    word-break: keep-all;
+  }
+
+  .evt-cta__content p {
+    margin-bottom: 28px;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .evt-cta__btn {
+    width: 168px;
+    height: 48px;
+    font-size: 15px;
   }
 
   .evt-cta__right {
@@ -1084,64 +1366,63 @@
   }
 
   .evt-consult__img:hover img,
-  .evt-cta:hover .evt-cta__right img {
+  .evt-cta:hover .evt-cta__right img,
+  .evt-type__card:hover .evt-type__thumb img {
     transform: none;
   }
 }
 
 @media screen and (max-width: 430px) {
   .evt-visual {
-    height: 280px;
+    height: 390px;
+    border-radius: 0 0 32px 32px;
+  }
+
+  .evt-visual__inner {
+    padding-bottom: 56px;
   }
 
   .evt-visual__inner p {
-    font-size: 22px;
+    font-size: 21px;
   }
 
   .evt-visual__inner h2 {
-    font-size: 32px;
+    font-size: 34px;
   }
 
   .evt-banner h3,
   .evt-service h3,
   .evt-type h3,
   .evt-consult__head h3 {
-    font-size: 22px;
+    font-size: 23px;
   }
 
-  .evt-service__card h5 {
-    font-size: 16px;
-  }
-
-  .evt-service__card p {
-    font-size: 14px;
-  }
-
-  .evt-type__card {
-    grid-template-columns: 64px 1fr;
-    min-height: 128px;
-  }
-
-  .evt-type__card::before {
-    left: 64px;
-  }
-
-  .evt-type__card .num {
+  .evt-service__col h4 {
     font-size: 18px;
   }
 
-  .evt-type__card h4 {
-    padding: 26px 22px 0;
-    font-size: 20px;
+  .evt-type__thumb {
+    height: 190px;
   }
 
-  .evt-type__card p {
-    padding: 0 22px 26px;
-    font-size: 14px;
+  .evt-type__txt {
+    padding: 40px 22px 28px;
+  }
+
+  .evt-type__txt h4 {
+    font-size: 22px;
+  }
+
+  .evt-consult__img {
+    height: 230px;
+  }
+
+  .evt-consult__item {
+    border-radius: 20px;
   }
 
   .evt-cta__content h3 {
-    font-size: 26px;
+    font-size: 27px;
   }
 }
 
@@ -1154,23 +1435,33 @@
     width: calc(100% - 28px);
   }
 
+  .evt-visual {
+    height: 360px;
+  }
+
   .evt-visual__inner h2 {
-    font-size: 30px;
+    font-size: 31px;
   }
 
-  .evt-type__card {
-    grid-template-columns: 56px 1fr;
+  .evt-type__thumb {
+    height: 176px;
   }
 
-  .evt-type__card::before {
-    left: 56px;
+  .evt-type__txt {
+    padding: 38px 20px 26px;
   }
 
-  .evt-type__card h4 {
-    padding: 24px 18px 0;
+  .evt-consult__item {
+    padding: 20px 20px 20px 24px;
   }
+}
 
-  .evt-type__card p {
-    padding: 0 18px 24px;
+.mo-br {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .mo-br {
+    display: block;
   }
 }
