@@ -154,8 +154,6 @@
   text-shadow: 0 12px 36px rgba(0, 0, 0, 0.5);
 }
 
-
-
 @keyframes evtHeroReveal {
   0% {
     opacity: 0;
@@ -182,7 +180,6 @@
   overflow: hidden;
   box-shadow: none;
 }
-
 
 .evt-banner__inner {
   position: relative;
@@ -273,7 +270,6 @@
   color: var(--main-orange);
   font-weight: 800;
 }
-
 
 .evt-service__grid {
   display: grid;
@@ -409,9 +405,12 @@
 .evt-type {
   position: relative;
   padding: 110px 0 120px;
-  background: #fff;
+    background:
+    radial-gradient(circle at 12% 18%, rgba(255, 121, 0, 0.08) 0%, transparent 30%),
+    linear-gradient(180deg, #fff 0%, #f8f8f8 100%);
   overflow: hidden;
 }
+
 
 
 .evt-type__inner {
@@ -433,146 +432,101 @@
 }
 
 .evt-type h3 strong {
-  position: relative;
   color: var(--main-orange);
   font-weight: 800;
 }
 
-
 .evt-type__list {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 26px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 }
 
 .evt-type__card {
   position: relative;
-  min-height: 280px;
-  padding: 38px 28px 36px;
-  border-radius: 22px;
-  background: rgba(255, 255, 255, 0.88);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  min-height: 210px;
+  border-radius: 26px;
+  background: #fff;
   border: 1px solid rgba(255, 121, 0, 0.16);
-  color: #222;
-  text-align: left;
   box-shadow: 0 24px 70px rgba(40, 24, 12, 0.08);
   overflow: hidden;
-  isolation: isolate;
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease,
     border-color 0.35s ease;
 }
 
-.evt-type__card::before {
+.evt-type__thumb {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.evt-type__thumb::after {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
-  background: linear-gradient(135deg, var(--main-orange) 0%, #ff9a2f 100%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-}
-
-.evt-type__card::after {
-  content: "";
-  position: absolute;
-  right: -38px;
-  top: -38px;
-  z-index: 1;
-  width: 118px;
-  height: 118px;
-  border-radius: 50%;
-  background: rgba(255, 121, 0, 0.1);
-  transition: all 0.35s ease;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(255, 121, 0, 0.2) 0%,
+      rgba(255, 121, 0, 0.04) 100%
+    );
   pointer-events: none;
 }
 
-.evt-type__card > * {
+.evt-type__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.evt-type__txt {
   position: relative;
-  z-index: 3;
+  padding: 34px 34px 32px;
 }
 
-.evt-type__card .num {
+.evt-type__txt .num {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 52px;
-  height: 52px;
-  margin-bottom: 34px;
-  border-radius: 16px;
+  margin-bottom: 22px;
   color: var(--main-orange);
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1;
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  transition:
-    color 0.35s ease,
-    background 0.35s ease;
+  font-weight: 800;
+  letter-spacing: -0.03em;
 }
 
-.evt-type__card h4 {
-  margin: 0 0 24px;
-  font-size: 25px;
-  line-height: 1.32;
+.evt-type__txt h4 {
+  margin: 0 0 14px;
+  font-size: 24px;
+  line-height: 1.35;
   font-weight: 700;
   letter-spacing: -0.055em;
   color: #191919;
-  transition: color 0.35s ease;
 }
 
-.evt-type__card h4::after {
-  content: "";
-  display: block;
-  width: 34px;
-  height: 2px;
-  margin: 18px 0 0;
-  border-radius: 999px;
-  background: rgba(255, 121, 0, 0.35);
-  transition: background 0.35s ease;
-}
-
-.evt-type__card p {
+.evt-type__txt p {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.75;
+  font-size: 15px;
+  line-height: 1.7;
   font-weight: 400;
   letter-spacing: -0.035em;
-  color: rgba(34, 34, 34, 0.7);
-  transition: color 0.35s ease;
+  color: rgba(34, 34, 34, 0.68);
 }
 
 .evt-type__card:hover {
-  transform: translateY(-12px);
-  border-color: transparent;
-  box-shadow: 0 34px 90px rgba(255, 121, 0, 0.32);
+  transform: translateY(-8px);
+  border-color: rgba(255, 121, 0, 0.36);
+  box-shadow: 0 32px 86px rgba(255, 121, 0, 0.17);
 }
 
-.evt-type__card:hover::before {
-  opacity: 1;
+.evt-type__card:hover .evt-type__thumb img {
+  transform: scale(1.08);
 }
-
-.evt-type__card:hover::after {
-  right: -20px;
-  top: -20px;
-  width: 150px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.16);
-}
-
-.evt-type__card:hover .num {
-  background: rgba(255, 255, 255, 0.22);
-  color: #fff;
-}
-
-.evt-type__card:hover h4,
-.evt-type__card:hover p {
-  color: #fff;
-}
-
-.evt-type__card:hover h4::after {
-  background: rgba(255, 255, 255, 0.72);
-}
-
 /* ==============================
    Consult
 ============================== */
@@ -622,7 +576,6 @@
   letter-spacing: -0.055em;
   color: #222;
 }
-
 
 .evt-consult__head h3 strong {
   color: var(--main-orange);
@@ -683,20 +636,24 @@
 .evt-consult__list {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 34px;
 }
 
 .evt-consult__item {
   position: relative;
-  padding: 24px 34px;
+  padding: 24px 34px 24px 40px;
   border: 1px solid rgba(255, 121, 0, 0.65);
   border-radius: 10px;
   background: #fff;
   text-align: center;
-  overflow: hidden;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  overflow: visible;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
+/* 기본 상태에서도 보이는 왼쪽 주황색 바 */
 .evt-consult__item::before {
   content: "";
   position: absolute;
@@ -704,30 +661,27 @@
   top: 0;
   width: 5px;
   height: 100%;
+  border-radius: 10px 0 0 10px;
   background: var(--main-orange);
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
-.evt-consult__item::after {
+/* 박스 사이 화살표 */
+.evt-consult__item:not(:last-child)::after {
   content: "";
   position: absolute;
-  right: 22px;
-  top: 50%;
-  width: 7px;
-  height: 7px;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  background: rgba(255, 121, 0, 0.38);
+  left: 50%;
+  bottom: -24px;
+  width: 13px;
+  height: 13px;
+  border-right: 2px solid rgba(255, 121, 0, 0.65);
+  border-bottom: 2px solid rgba(255, 121, 0, 0.65);
+  transform: translateX(-50%) rotate(45deg);
 }
 
 .evt-consult__item:hover {
-  transform: translateX(8px);
+  transform: translateY(-4px);
+  border-color: rgba(255, 121, 0, 0.85);
   box-shadow: 0 24px 56px rgba(255, 121, 0, 0.12);
-}
-
-.evt-consult__item:hover::before {
-  opacity: 1;
 }
 
 .evt-consult__item h4 {
@@ -808,8 +762,6 @@
   letter-spacing: -0.055em;
   color: #fff;
 }
-
-
 
 .evt-cta__content h3 strong {
   color: var(--main-orange);
@@ -958,7 +910,7 @@
   }
 
   .evt-type__list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
   }
 
   .evt-consult__content {
@@ -1031,17 +983,8 @@
     font-size: 38px;
   }
 
-  .evt-visual__inner h2::after {
-    width: 52px;
-    margin-top: 24px;
-  }
-
   .evt-banner {
     padding: 54px 0;
-  }
-
-  .evt-banner::before {
-    font-size: 86px;
   }
 
   .evt-banner h3 {
@@ -1077,15 +1020,35 @@
   }
 
   .evt-type::before {
-    font-size: 72px;
-  }
-
-  .evt-type__list {
-    grid-template-columns: 1fr;
+    right: -8px;
+    bottom: 22px;
+    font-size: 82px;
   }
 
   .evt-type__card {
-    min-height: 220px;
+    grid-template-columns: 72px 1fr;
+    min-height: 136px;
+    border-radius: 20px;
+  }
+
+  .evt-type__card::before {
+    left: 72px;
+    top: 24px;
+    bottom: 24px;
+  }
+
+  .evt-type__card .num {
+    font-size: 20px;
+  }
+
+  .evt-type__card h4 {
+    padding: 28px 26px 0;
+    font-size: 21px;
+  }
+
+  .evt-type__card p {
+    padding: 0 26px 28px;
+    font-size: 14px;
   }
 
   .evt-consult__head {
@@ -1154,11 +1117,26 @@
     font-size: 14px;
   }
 
+  .evt-type__card {
+    grid-template-columns: 64px 1fr;
+    min-height: 128px;
+  }
+
+  .evt-type__card::before {
+    left: 64px;
+  }
+
+  .evt-type__card .num {
+    font-size: 18px;
+  }
+
   .evt-type__card h4 {
-    font-size: 21px;
+    padding: 26px 22px 0;
+    font-size: 20px;
   }
 
   .evt-type__card p {
+    padding: 0 22px 26px;
     font-size: 14px;
   }
 
@@ -1178,5 +1156,21 @@
 
   .evt-visual__inner h2 {
     font-size: 30px;
+  }
+
+  .evt-type__card {
+    grid-template-columns: 56px 1fr;
+  }
+
+  .evt-type__card::before {
+    left: 56px;
+  }
+
+  .evt-type__card h4 {
+    padding: 24px 18px 0;
+  }
+
+  .evt-type__card p {
+    padding: 0 18px 24px;
   }
 }
