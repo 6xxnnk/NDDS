@@ -1257,7 +1257,7 @@
   }
 
   .con-intro__content {
-    gap: 32px;
+    gap: 40px;
   }
 
   .con-intro__img {
@@ -1267,10 +1267,13 @@
   .con-intro__text p {
     font-size: 14px;
     line-height: 1.78;
+    text-align: center;
   }
 
   .con-intro__text .con-intro__thought {
     font-size: 15px;
+    text-align: center;
+    width: 100%;
   }
 
   .con-intro__text p br:not(.mo-br) {
@@ -1818,17 +1821,17 @@
 
   .con-process__icon {
     flex-basis: 46px;
-    width: 46px;
-    height: 46px;
+    width: 50px;
+    height: 50px;
     padding: 10px;
   }
 
   .con-process__card h4 {
-    font-size: 15.5px;
+    font-size: 17px;
   }
 
   .con-process__card p {
-    font-size: 12.5px;
+    font-size: 14px;
   }
 }
 
