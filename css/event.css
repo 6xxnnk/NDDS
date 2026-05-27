@@ -1478,3 +1478,42 @@
     display: inline;
   }
 }
+
+.pc-br {
+  display: block;
+}
+
+.mo-br {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .pc-br {
+    display: none;
+  }
+
+  .mo-br {
+    display: block;
+  }
+}
+
+/* ==============================
+   Consult Text Line Break Fix
+============================== */
+@media screen and (max-width: 768px) {
+  .evt-consult__head p br {
+    display: none;
+  }
+
+  .evt-consult__head p br.mo-br {
+    display: block !important;
+  }
+
+  .evt-consult__head p br.pc-br {
+    display: none !important;
+  }
+
+  .evt-consult__head h3 br.mo-br {
+    display: block !important;
+  }
+}
