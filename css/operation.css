@@ -58,7 +58,6 @@
   height: 1px;
   background: var(--op-orange);
 }
-
 /* ==============================
    Visual
 ============================== */
@@ -66,9 +65,9 @@
 .op-visual {
   position: relative;
   width: 100%;
-  height: 440px;
+  height: 520px;
   overflow: hidden;
-  border-radius: 0 0 56px 56px;
+  border-radius: 0 0 72px 72px;
   background-image: url("../img/op_visual.jpg");
   background-repeat: no-repeat;
   background-position: center center;
@@ -84,9 +83,9 @@
   background:
     linear-gradient(
       90deg,
-      rgba(0, 0, 0, 0.72) 0%,
-      rgba(0, 0, 0, 0.46) 48%,
-      rgba(0, 0, 0, 0.16) 100%
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.52) 46%,
+      rgba(0, 0, 0, 0.18) 100%
     );
   pointer-events: none;
 }
@@ -94,14 +93,14 @@
 .op-visual::after {
   content: "OPERATION";
   position: absolute;
-  right: -24px;
-  bottom: -20px;
+  right: -28px;
+  bottom: -28px;
   z-index: 2;
   color: rgba(255, 255, 255, 0.08);
-  font-size: clamp(88px, 13vw, 190px);
-  line-height: 0.82;
+  font-size: clamp(110px, 16vw, 230px);
+  line-height: 0.8;
   font-weight: 900;
-  letter-spacing: -0.1em;
+  letter-spacing: -0.12em;
   pointer-events: none;
 }
 
@@ -124,37 +123,22 @@
   text-align: left;
   animation: opHeroReveal 0.8s ease forwards;
 }
-.op-visual__eyebrow {
-  display: inline-flex;
-  align-items: center;
-  margin: 0 0 18px;
-  padding: 9px 16px;
-  border: 1px solid rgba(255, 255, 255, 0.26);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
-  backdrop-filter: blur(10px);
 
-  color: rgba(255, 255, 255, 0.92);
-  font-size: 13px;
-  line-height: 1;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-}
 .op-visual__inner h2 {
-  max-width: 720px;
+  max-width: 760px;
   margin: 0;
   color: #fff;
-  font-size: 58px;
-  line-height: 1.12;
+  font-size: 64px;
+  line-height: 1.08;
   font-weight: 800;
 
 }
 
 .op-visual__inner span {
-  max-width: 600px;
-  margin-top: 22px;
+  max-width: 620px;
+  margin-top: 28px;
   color: rgba(255, 255, 255, 0.82);
-  font-size: 17px;
+  font-size: 18px;
   line-height: 1.72;
   font-weight: 400;
   letter-spacing: -0.04em;
@@ -245,7 +229,7 @@
   color: var(--op-black);
   font-size: 42px;
   line-height: 1.28;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.075em;
 }
 
@@ -266,29 +250,7 @@
   box-shadow: 0 24px 70px rgba(0, 0, 0, 0.065);
 }
 
-.op-intro__body::before {
-  content: "";
-  position: absolute;
-  right: 34px;
-  top: 34px;
-  width: 46px;
-  height: 2px;
-  border-radius: 999px;
-  background: var(--op-orange);
-  opacity: 0.7;
-}
 
-.op-intro__body::after {
-  content: "";
-  position: absolute;
-  right: -80px;
-  bottom: -80px;
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background: rgba(255, 121, 0, 0.07);
-  pointer-events: none;
-}
 
 .op-intro__mark {
   display: inline-flex;
@@ -732,6 +694,13 @@
   font-weight: 800;
   letter-spacing: -0.02em;
 }
+.op-partner__title span {
+  position: relative;
+  display: inline-block;
+  color: var(--op-orange);
+  font-weight: 800;
+}
+
 
 /* ==============================
    Category
@@ -758,7 +727,7 @@
   color: var(--op-black);
   font-size: 42px;
   line-height: 1.28;
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.075em;
 }
 
@@ -1177,4 +1146,11 @@
     animation: none;
     transition: none;
   }
+}
+
+.operation-main h3 strong,
+.operation-main h4 strong,
+.operation-main p strong {
+  color: var(--op-orange);
+  font-weight: 800;
 }
