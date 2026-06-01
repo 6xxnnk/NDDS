@@ -209,19 +209,6 @@
   position: relative;
 }
 
-.op-intro__head::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -36px;
-  width: 96px;
-  height: 1px;
-  background: linear-gradient(
-    90deg,
-    var(--op-orange),
-    rgba(255, 121, 0, 0)
-  );
-}
 
 .op-intro__head h3 {
   max-width: 680px;
