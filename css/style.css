@@ -3331,3 +3331,100 @@
     width: 24px;
   }
 }
+
+/* ==============================
+   About Message Style
+   대표 인사말
+============================== */
+
+.about--message {
+  min-height: auto;
+  padding: 96px 0 104px;
+  background: #f7f3ec;
+  background-image: none;
+  overflow: hidden;
+}
+
+.about--message .about__inner {
+  width: 1280px;
+  min-height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.about--message .about__text {
+  width: 820px;
+  padding-left: 0;
+}
+
+.about__label {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 34px;
+  padding-left: 44px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: #151515;
+}
+
+.about__label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 28px;
+  height: 2px;
+  transform: translateY(-50%);
+  background: var(--main-orange);
+}
+
+.about--message .about__title {
+  margin: 0 0 34px;
+  font-size: 36px;
+  line-height: 1.48;
+  font-weight: 500;
+  letter-spacing: -0.055em;
+  color: #050505;
+}
+
+.about--message .about__title strong {
+  color: var(--main-orange);
+  font-weight: 500;
+}
+
+.about--message .about__desc p {
+  margin: 0 0 24px;
+  font-size: 18px;
+  line-height: 1.86;
+  font-weight: 500;
+  letter-spacing: -0.05em;
+  color: #111;
+  word-break: keep-all;
+}
+
+.about--message .about__desc p:last-child {
+  margin-bottom: 0;
+}
+
+.about--message .about__sign {
+  margin-top: 38px;
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 500;
+  color: #555;
+}
+
+.about--message .about__sign strong {
+  margin-left: 8px;
+  color: #111;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+/* 이미지형 레이아웃에서는 오른쪽 대표 이미지 숨김 */
+.about--message .about__visual {
+  display: none;
+}
