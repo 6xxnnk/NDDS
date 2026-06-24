@@ -1,3 +1,5 @@
+@charset "utf-8";
+
 /* ==============================
    Consulting Page
 ============================== */
@@ -462,97 +464,6 @@
 }
 
 /* ==============================
-   Process
-============================== */
-
-.con-process {
-  padding: 112px 0 124px;
-  background: #fff;
-  overflow: hidden;
-}
-
-.con-process__inner {
-  width: var(--con-inner);
-  margin: 0 auto;
-}
-
-.con-process__head {
-  max-width: 760px;
-  margin-bottom: 58px;
-}
-
-.con-process__head h3 {
-  margin: 0;
-  color: var(--con-black);
-  font-size: 40px;
-  line-height: 1.3;
-  font-weight: 800;
-  letter-spacing: -0.07em;
-}
-
-.con-process__list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 16px;
-}
-
-.con-process__card {
-  position: relative;
-  min-height: 220px;
-  padding: 30px 26px;
-  overflow: hidden;
-  border: 1px solid var(--con-line);
-  border-radius: 28px;
-  background: #fff;
-  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.05);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-
-  transition:
-    transform 0.32s ease,
-    box-shadow 0.32s ease,
-    border-color 0.32s ease;
-}
-
-.con-process__card:hover {
-  transform: translateY(-8px);
-  border-color: rgba(255, 121, 0, 0.28);
-  box-shadow: var(--con-shadow);
-}
-
-.con-process__card span {
-  position: absolute;
-  right: 24px;
-  top: 24px;
-  color: rgba(255, 121, 0, 0.16);
-  font-size: 52px;
-  line-height: 1;
-  font-weight: 400;
-  letter-spacing: -0.08em;
-}
-
-.con-process__card h4 {
-  margin: 0 0 10px;
-  color: var(--con-black);
-  font-size: 22px;
-  line-height: 1.25;
-  font-weight: 800;
-  letter-spacing: -0.055em;
-}
-
-.con-process__card p {
-  margin: 0;
-  color: var(--con-muted);
-  font-size: 14px;
-  line-height: 1.62;
-  font-weight: 400;
-  letter-spacing: -0.04em;
-}
-
-
-/* ==============================
    Benefit
 ============================== */
 
@@ -707,7 +618,6 @@
 .con-benefit__card--point span {
   color: rgba(255, 255, 255, 0.22);
 }
-
 
 /* ==============================
    Benefit Responsive
@@ -931,8 +841,9 @@
 }
 
 .con-check__content p {
+  position: relative;
   margin: 30px 0 0;
-  padding: 22px 24px;
+  padding: 22px 24px 22px 58px;
   border-radius: 18px;
   background: var(--con-orange);
   color: #fff;
@@ -1193,92 +1104,6 @@ body.is-modal-open {
   overflow: hidden;
 }
 /* ==============================
-   Process Arrow Flow
-============================== */
-.con-process__card::after {
-  content: "";
-  position: absolute;
-  right: -22px;
-  top: 50%;
-  z-index: 5;
-
-  width: 34px;
-  height: 1px;
-  transform: translateY(-50%);
-
-  background: var(--con-orange);
-  pointer-events: none;
-}
-
-.con-process__card::before {
-  content: "";
-  position: absolute;
-  right: -23px;
-  top: 50%;
-  z-index: 6;
-
-  width: 8px;
-  height: 8px;
-  transform: translateY(-50%) rotate(45deg);
-
-  border-top: 1px solid var(--con-orange);
-  border-right: 1px solid var(--con-orange);
-  pointer-events: none;
-}
-
-.con-process__card:last-child::after,
-.con-process__card:last-child::before {
-  display: none;
-}
-
-@media screen and (max-width: 1280px) {
-  .con-process__card:nth-child(3)::after {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .con-process__card:nth-child(3)::after {
-    display: flex;
-  }
-
-  .con-process__card:nth-child(2)::after,
-  .con-process__card:nth-child(4)::after {
-    display: none;
-  }
-}
-@media screen and (max-width: 768px) {
-  .con-process__card::after {
-    content: "↓";
-    left: 50%;
-    right: auto;
-    top: auto;
-    bottom: -28px;
-
-    width: 34px;
-    height: 34px;
-
-    transform: translateX(-50%);
-
-    font-size: 18px;
-    font-weight: 700;
-  }
-
-  .con-process__card:nth-child(2)::after,
-  .con-process__card:nth-child(3)::after,
-  .con-process__card:nth-child(4)::after {
-    display: flex;
-  }
-
-  .con-process__card:last-child::after {
-    display: none;
-  }
-
-  .con-process__list {
-    gap: 34px;
-  }
-}
-/* ==============================
    Checklist Animation
 ============================== */
 
@@ -1356,11 +1181,6 @@ body.is-modal-open {
   }
 }
 /* 체크리스트 안내 박스 느낌표 */
-.con-check__content p {
-  position: relative;
-  padding: 22px 24px 22px 58px;
-}
-
 .con-check__content p::before {
   content: "!";
   position: absolute;
@@ -1410,7 +1230,6 @@ body.is-modal-open {
 
   .con-intro__head h3,
   .con-insight__head h3,
-  .con-process__head h3,
   .con-check__head h3 {
     font-size: 38px;
   }
@@ -1423,9 +1242,6 @@ body.is-modal-open {
     min-height: 460px;
   }
 
-  .con-process__list {
-    grid-template-columns: repeat(3, 1fr);
-  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -1465,10 +1281,6 @@ body.is-modal-open {
 
   .con-insight__card p {
     max-width: 520px;
-  }
-
-  .con-process__list {
-    grid-template-columns: repeat(2, 1fr);
   }
 
   .con-check__head {
@@ -1556,7 +1368,6 @@ body.is-modal-open {
 
   .con-intro,
   .con-insight,
-  .con-process,
   .con-check {
     padding: 78px 0;
   }
@@ -1568,14 +1379,12 @@ body.is-modal-open {
 
   .con-intro__head,
   .con-insight__head,
-  .con-process__head,
   .con-check__head {
     text-align: center;
   }
 
   .con-intro__head h3,
   .con-insight__head h3,
-  .con-process__head h3,
   .con-check__head h3 {
     font-size: 28px;
     line-height: 1.38;
@@ -1603,7 +1412,6 @@ body.is-modal-open {
 
   .con-intro__text p,
   .con-insight__card p,
-  .con-process__card p,
   .con-check__content li {
     font-size: 14.5px;
     line-height: 1.68;
@@ -1613,8 +1421,7 @@ body.is-modal-open {
     justify-content: center;
   }
 
-  .con-insight__head,
-  .con-process__head {
+  .con-insight__head {
     margin-bottom: 34px;
   }
 
@@ -1653,21 +1460,6 @@ body.is-modal-open {
 
   .con-insight__card:hover img,
   .con-intro__img:hover img {
-    transform: none;
-  }
-
-  .con-process__list {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
-
-  .con-process__card {
-    min-height: 150px;
-    padding: 28px 24px;
-    border-radius: 24px;
-  }
-
-  .con-process__card:hover {
     transform: none;
   }
 
@@ -1795,7 +1587,6 @@ body.is-modal-open {
 
   .con-intro__head h3,
   .con-insight__head h3,
-  .con-process__head h3,
   .con-check__head h3 {
     font-size: 24px;
   }
@@ -1868,7 +1659,6 @@ body.is-modal-open {
 
   .con-intro__head h3,
   .con-insight__head h3,
-  .con-process__head h3,
   .con-check__head h3 {
     font-size: 22px;
   }
@@ -1899,11 +1689,15 @@ body.is-modal-open {
   .con-visual__inner,
   .con-intro__img img,
   .con-insight__card img,
-  .con-process__card,
+  .con-benefit__card,
+  .con-check__content li,
+  .con-check__content p,
   .con-detail-modal,
-  .con-detail-modal__panel {
-    animation: none;
-    transition: none;
+  .con-detail-modal__panel,
+  .con-work__card,
+  .con-work__img img {
+    animation: none !important;
+    transition: none !important;
   }
 }
 /* ==============================
@@ -2100,4 +1894,354 @@ body.is-modal-open {
   font-size: 13px;
   line-height: 1;
   font-weight: 800;
+}
+
+/* ==============================
+   Consulting Work Responsive
+============================== */
+
+@media screen and (max-width: 1024px) {
+  .con-work {
+    padding: 92px 0 90px;
+  }
+
+  .con-work__head h3 {
+    font-size: 38px;
+  }
+
+  .con-work__head h3 strong {
+    font-size: 40px;
+  }
+
+  .con-work__card-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .con-work__img {
+    height: 230px;
+  }
+
+  .con-work__flow {
+    flex-wrap: wrap;
+    row-gap: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .con-work {
+    padding: 78px 0 76px;
+  }
+
+  .con-work__label {
+    margin-bottom: 22px;
+    font-size: 12px;
+  }
+
+  .con-work__label::before {
+    width: 26px;
+  }
+
+  .con-work__head h3 {
+    font-size: 30px;
+    line-height: 1.38;
+  }
+
+  .con-work__head h3 strong {
+    font-size: 32px;
+  }
+
+  .con-work__card-wrap {
+    margin-top: 42px;
+    gap: 16px;
+  }
+
+  .con-work__img {
+    height: 190px;
+  }
+
+  .con-work__text {
+    padding: 26px 22px 28px;
+  }
+
+  .con-work__text h4 {
+    font-size: 18px;
+  }
+
+  .con-work__text li {
+    font-size: 14px;
+  }
+
+  .con-work__flow {
+    width: fit-content;
+    margin-top: 34px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .con-work__flow li {
+    min-height: 36px;
+  }
+
+  .con-work__flow li:not(:last-child)::after {
+    content: "↓";
+    position: absolute;
+    left: 13px;
+    top: 32px;
+    margin-left: 0;
+    color: var(--con-orange);
+  }
+
+  .con-work__card:hover,
+  .con-benefit__card:hover {
+    transform: none;
+  }
+
+  .con-work__card:hover .con-work__img img {
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .con-work {
+    padding: 70px 0 72px;
+  }
+
+  .con-work__head h3 {
+    font-size: 26px;
+  }
+
+  .con-work__head h3 strong {
+    font-size: 28px;
+  }
+
+  .con-work__img {
+    height: 165px;
+  }
+
+  .con-work__text h4 {
+    font-size: 17px;
+  }
+
+  .con-work__text li {
+    font-size: 13.5px;
+  }
+}
+
+/* ==============================
+   Consulting Work Responsive Fix
+   con-work 양옆 잘림 방지
+============================== */
+
+@media screen and (max-width: 1024px) {
+  .con-work {
+    padding: 92px 0 90px;
+  }
+
+  .con-work__inner {
+    width: calc(100% - 80px);
+    max-width: none;
+  }
+
+  .con-work__head h3 {
+    font-size: 38px;
+    line-height: 1.36;
+  }
+
+  .con-work__head h3 strong {
+    font-size: 40px;
+  }
+
+  .con-work__card-wrap {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 48px;
+  }
+
+  .con-work__card {
+    width: 100%;
+  }
+
+  .con-work__img {
+    height: 230px;
+  }
+
+  .con-work__flow {
+    width: 100%;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px 18px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .con-work {
+    padding: 78px 0 76px;
+  }
+
+  .con-work__inner {
+    width: calc(100% - 40px);
+    max-width: none;
+  }
+
+  .con-work__label {
+    margin-bottom: 22px;
+    font-size: 12px;
+  }
+
+  .con-work__label::before {
+    width: 26px;
+  }
+
+  .con-work__head h3 {
+    font-size: 30px;
+    line-height: 1.38;
+  }
+
+  .con-work__head h3 strong {
+    font-size: 32px;
+  }
+
+  .con-work__card-wrap {
+    margin-top: 42px;
+    gap: 16px;
+  }
+
+  .con-work__card {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .con-work__img {
+    height: 190px;
+  }
+
+  .con-work__text {
+    padding: 26px 22px 28px;
+  }
+
+  .con-work__text h4 {
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .con-work__text li {
+    margin-bottom: 14px;
+    font-size: 14px;
+    line-height: 1.68;
+  }
+
+  .con-work__flow {
+    width: 100%;
+    margin-top: 34px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .con-work__flow li {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 14px;
+    border: 1px solid rgba(255, 121, 0, 0.18);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.62);
+    justify-content: flex-start;
+    font-size: 14px;
+  }
+
+  .con-work__flow li:not(:last-child)::after {
+    content: none;
+  }
+
+  .con-work__flow li span {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+  }
+
+  .con-work__card:hover {
+    transform: none;
+  }
+
+  .con-work__card:hover .con-work__img img {
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .con-work {
+    padding: 70px 0 72px;
+  }
+
+  .con-work__inner {
+    width: calc(100% - 32px);
+  }
+
+  .con-work__head h3 {
+    font-size: 26px;
+  }
+
+  .con-work__head h3 strong {
+    font-size: 28px;
+  }
+
+  .con-work__card-wrap {
+    margin-top: 36px;
+  }
+
+  .con-work__img {
+    height: 165px;
+  }
+
+  .con-work__text {
+    padding: 24px 20px 26px;
+  }
+
+  .con-work__text h4 {
+    font-size: 17px;
+  }
+
+  .con-work__text li {
+    padding-left: 18px;
+    font-size: 13.5px;
+  }
+
+  .con-work__flow li {
+    min-height: 42px;
+    padding: 0 12px;
+    font-size: 13.5px;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .con-work__inner {
+    width: calc(100% - 28px);
+  }
+
+  .con-work__head h3 {
+    font-size: 24px;
+  }
+
+  .con-work__head h3 strong {
+    font-size: 26px;
+  }
+
+  .con-work__img {
+    height: 150px;
+  }
+
+  .con-work__text {
+    padding: 22px 18px 24px;
+  }
+
+  .con-work__text li {
+    font-size: 13px;
+  }
+
+  .con-work__flow li {
+    font-size: 13px;
+  }
 }
