@@ -1906,3 +1906,198 @@ body.is-modal-open {
     transition: none;
   }
 }
+/* ==============================
+   Consulting Work Section
+   사람과 데이터, 두 축으로 운영합니다
+============================== */
+
+.con-work {
+  padding: 104px 0 96px;
+  background: #f5eee5;
+  overflow: hidden;
+}
+
+.con-work__inner {
+  width: var(--con-inner);
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.con-work__head {
+  text-align: center;
+}
+
+.con-work__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 26px;
+  color: var(--con-orange);
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.con-work__label::before {
+  content: "";
+  width: 30px;
+  height: 2px;
+  background: var(--con-orange);
+}
+
+.con-work__head h3 {
+  margin: 0;
+  color: var(--con-black);
+  font-size: 42px;
+  line-height: 1.34;
+  font-weight: 800;
+  letter-spacing: -0.07em;
+}
+
+.con-work__head h3 strong {
+  display: block;
+  color: var(--con-orange);
+  font-size: 44px;
+  font-weight: 800;
+}
+
+.con-work__card-wrap {
+  margin-top: 54px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.con-work__card {
+  overflow: hidden;
+  border: 1px solid rgba(90, 58, 28, 0.18);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 16px 38px rgba(57, 38, 19, 0.05);
+  transition:
+    transform 0.32s ease,
+    box-shadow 0.32s ease,
+    border-color 0.32s ease;
+}
+
+.con-work__card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 121, 0, 0.34);
+  box-shadow: 0 26px 58px rgba(57, 38, 19, 0.13);
+}
+
+.con-work__img {
+  width: 100%;
+  height: 185px;
+  margin: 0;
+  overflow: hidden;
+  background: #ddd;
+}
+
+.con-work__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.con-work__card:hover .con-work__img img {
+  transform: scale(1.055);
+}
+
+.con-work__text {
+  padding: 28px 28px 30px;
+}
+
+.con-work__text h4 {
+  margin: 0 0 24px;
+  color: #050505;
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+.con-work__text ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.con-work__text li {
+  position: relative;
+  margin-bottom: 16px;
+  padding-left: 20px;
+  color: #151515;
+  font-size: 14.5px;
+  line-height: 1.65;
+  font-weight: 400;
+  letter-spacing: -0.045em;
+}
+
+.con-work__text li:last-child {
+  margin-bottom: 0;
+}
+
+.con-work__text li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--con-orange);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.con-work__text li strong {
+  color: #050505;
+  font-weight: 800;
+}
+
+.con-work__flow {
+  margin: 44px auto 0;
+  padding: 0;
+  list-style: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.con-work__flow li {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #111;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.con-work__flow li:not(:last-child)::after {
+  content: "→";
+  margin-left: 4px;
+  color: #111;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.con-work__flow li span {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--con-orange);
+  color: #fff;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 800;
+}
